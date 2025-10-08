@@ -454,90 +454,105 @@ def main_streamlit():
             st.experimental_rerun()
 
     # ---------- Tabs: Main & Mixed Exam ----------
-# Keep existing main flow; provide a second tab for creating a mixed exam with detailed per‑module report.
+# Define a renderer function and attach it to run after main_streamlit().
 
-try:
-    tab_main, tab_mix = st.tabs(["🧩 Làm đề", "🏗️ Tạo đề hỗn hợp"])
-except Exception:
-    # Older Streamlit versions may not have tabs; gracefully fall back to a header section
-    tab_main = st.container()
-    tab_mix = st.container()
+def render_tabs(st):
+    # Keep existing main flow; provide a second tab for creating a mixed exam with detailed per‑module report.
+    try:
+        tab_main, tab_mix = st.tabs(["🧩 Làm đề", "🏗️ Tạo đề hỗn hợp"])
+    except Exception:
+        # Older Streamlit versions may not have tabs; gracefully fall back to a header section
+        tab_main = st.container()
+        tab_mix = st.container()
 
-with tab_mix:
-    st.subheader("Tạo đề hỗn hợp – có báo cáo chi tiết theo module")
-    total_mix = st.number_input("Tổng số câu", min_value=10, max_value=300, value=100, step=10, key="mix_total")
+    with tab_mix:
+        st.subheader("Tạo đề hỗn hợp – có báo cáo chi tiết theo module")
+        total_mix = st.number_input("Tổng số câu", min_value=10, max_value=300, value=100, step=10, key="mix_total")
 
-    c1, c2, c3 = st.columns(3)
-    with c1:
-        pA = st.number_input("% B1", min_value=0, max_value=100, value=0, key="mix_p_b1")
-    with c2:
-        pB = st.number_input("% B2", min_value=0, max_value=100, value=0, key="mix_p_b2")
-    with c3:
-        pC = st.number_input("% M10", min_value=0, max_value=100, value=0, key="mix_p_m10")
+        c1, c2, c3 = st.columns(3)
+        with c1:
+            pA = st.number_input("% B1", min_value=0, max_value=100, value=0, key="mix_p_b1")
+        with c2:
+            pB = st.number_input("% B2", min_value=0, max_value=100, value=0, key="mix_p_b2")
+        with c3:
+            pC = st.number_input("% M10", min_value=0, max_value=100, value=0, key="mix_p_m10")
 
-    st.caption("• App sẽ chia đều số câu mỗi Cat qua các module hiện có.• Bấm **Tính phân bổ** để xem bảng chi tiết (tổng từng Cat và từng Module). Nếu ổn, bấm **Tạo đề hỗn hợp** để nạp vào bài.")
+        st.caption("• App sẽ chia đều số câu mỗi Cat qua các module hiện có.
 
-    def _plan_distribution() -> Dict[str, List[Dict]]:
-        """Return a per-category plan with even split across available modules.
-        Each item: {cat, module, available, need, take}
-        """
-        plan: Dict[str, List[Dict]] = {}
-        for cat, pct in [("B1", pA), ("B2", pB), ("M10", pC)]:
-            if pct <= 0:
-                continue
-            cat_need = round(int(total_mix) * pct / 100)
-            mods = list_available_modules(cat)
-            rows = []
-            if not mods:
-                plan[cat] = [{"module": "-", "available": 0, "need": 0, "take": 0}]
-                continue
-            per_mod = cat_need // len(mods)
-            rem = cat_need % len(mods)
-            for i, m in enumerate(mods):
-                need = per_mod + (1 if i < rem else 0)
-                avail = len(load_csv_bank(cat, str(m)))
-                take = min(need, avail)
-                rows.append({"module": m, "available": avail, "need": need, "take": take})
-            plan[cat] = rows
-        return plan
+• Bấm **Tính phân bổ** để xem bảng chi tiết (tổng từng Cat và từng Module). Nếu ổn, bấm **Tạo đề hỗn hợp** để nạp vào bài.")
 
-    show_report = st.button("Tính phân bổ")
-    if show_report:
-        plan = _plan_distribution()
-        import pandas as pd
-        total_take = 0
-        for cat, rows in plan.items():
-            st.markdown(f"**[{cat}] Tổng dự kiến:** {sum(r['take'] for r in rows)} câu")
-            df = pd.DataFrame(rows)[["module", "available", "need", "take"]]
-            df = df.rename(columns={"module": "Module", "available": "Có sẵn", "need": "Cần", "take": "Lấy"})
-            st.dataframe(df, use_container_width=True)
-            total_take += sum(r['take'] for r in rows)
-        st.info(f"Tổng cộng sẽ lấy: **{total_take}**/{int(total_mix)} câu.")
+        def _plan_distribution() -> Dict[str, List[Dict]]:
+            """Return a per-category plan with even split across available modules.
+            Each item: {cat, module, available, need, take}
+            """
+            plan: Dict[str, List[Dict]] = {}
+            for cat, pct in [("B1", pA), ("B2", pB), ("M10", pC)]:
+                if pct <= 0:
+                    continue
+                cat_need = round(int(total_mix) * pct / 100)
+                mods = list_available_modules(cat)
+                rows = []
+                if not mods:
+                    plan[cat] = [{"module": "-", "available": 0, "need": 0, "take": 0}]
+                    continue
+                per_mod = cat_need // len(mods)
+                rem = cat_need % len(mods)
+                for i, m in enumerate(mods):
+                    need = per_mod + (1 if i < rem else 0)
+                    avail = len(load_csv_bank(cat, str(m)))
+                    take = min(need, avail)
+                    rows.append({"module": m, "available": avail, "need": need, "take": take})
+                plan[cat] = rows
+            return plan
 
-    if st.button("Tạo đề hỗn hợp", use_container_width=True):
-        if pA + pB + pC != 100:
-            st.error("Tổng % phải = 100")
-        else:
-            # Build using the same plan to ensure counts match the report
+        show_report = st.button("Tính phân bổ")
+        if show_report:
             plan = _plan_distribution()
-            bank: List[QAItem] = []
-            rng = random.Random()
+            import pandas as pd
+            total_take = 0
             for cat, rows in plan.items():
-                for r in rows:
-                    if r["take"] <= 0 or r["module"] == "-":
-                        continue
-                    pool = load_csv_bank(cat, str(r["module"]))
-                    if not pool:
-                        continue
-                    take = min(r["take"], len(pool))
-                    bank.extend(rng.sample(pool, take))
-            if not bank:
-                st.error("Không tạo được đề (dữ liệu rỗng)")
+                st.markdown(f"**[{cat}] Tổng dự kiến:** {sum(r['take'] for r in rows)} câu")
+                df = pd.DataFrame(rows)[["module", "available", "need", "take"]]
+                df = df.rename(columns={"module": "Module", "available": "Có sẵn", "need": "Cần", "take": "Lấy"})
+                st.dataframe(df, use_container_width=True)
+                total_take += sum(r['take'] for r in rows)
+            st.info(f"Tổng cộng sẽ lấy: **{total_take}**/{int(total_mix)} câu.")
+
+        if st.button("Tạo đề hỗn hợp", use_container_width=True):
+            if pA + pB + pC != 100:
+                st.error("Tổng % phải = 100")
             else:
-                rng.shuffle(bank)
-                st.session_state.bank = bank
-                st.session_state.order = list(range(len(bank)))
-                st.session_state.cur = 0
-                st.session_state.picks = {}
-                st.session_state.fails_first_try = set()
-                st.success(f"Đã tạo đề gồm {len(bank)} câu. Chuyển sang tab **🧩 Làm đề** và bấm **BẮT ĐẦU** để thi.")
+                # Build using the same plan to ensure counts match the report
+                plan = _plan_distribution()
+                bank: List[QAItem] = []
+                rng = random.Random()
+                for cat, rows in plan.items():
+                    for r in rows:
+                        if r["take"] <= 0 or r["module"] == "-":
+                            continue
+                        pool = load_csv_bank(cat, str(r["module"]))
+                        if not pool:
+                            continue
+                        take = min(r["take"], len(pool))
+                        bank.extend(rng.sample(pool, take))
+                if not bank:
+                    st.error("Không tạo được đề (dữ liệu rỗng)")
+                else:
+                    rng.shuffle(bank)
+                    st.session_state.bank = bank
+                    st.session_state.order = list(range(len(bank)))
+                    st.session_state.cur = 0
+                    st.session_state.picks = {}
+                    st.session_state.fails_first_try = set()
+                    st.success(f"Đã tạo đề gồm {len(bank)} câu. Chuyển sang tab **🧩 Làm đề** và bấm **BẮT ĐẦU** để thi.")
+
+# Attach tabs to main_streamlit after it is defined
+if _st is not None:
+    try:
+        _orig_main_streamlit = main_streamlit
+        def main_streamlit():  # type: ignore[no-redef]
+            _orig_main_streamlit()
+            render_tabs(_st)
+    except Exception:
+        # If something goes wrong, leave original main_streamlit intact
+        pass
