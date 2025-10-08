@@ -573,7 +573,7 @@ def run_self_tests() -> None:
             w.writerow(headers)
             for q, opts, correct in rows:
                 row = [q]
-                # ensure at least 3 option columns
+                # ensure at least 3 columns for options
                 for i in range(3):
                     row.append(opts[i] if i < len(opts) else "")
                 row.append(correct)
@@ -596,20 +596,25 @@ def run_self_tests() -> None:
     # Test 2: load_csv_bank structure
     b1 = load_csv_bank("B1", "1", base)
     assert len(b1) == 2 and b1[0].q.startswith("Q"), "load_csv_bank failed for B1"
-    assert any("B1" in opt for opt in b1[0].options), "Options not parsed correctly"
+    assert any("B1" in opt for opt in b1[0].options), "Options not parsed"
 
-    # Test 3: mix_generate 50/50 of total 5 → expect 2 from B1 and 3 from M10
+    # Test 3: mix_generate 50/50 of total 5 → expect 2 from B1 and 3 from M10 (largest remainder)
     mixed = mix_generate({"B1": 50, "M10": 50}, 5, base)
     assert len(mixed) == 5, "Mixed length must equal total"
     cats = [x.cat for x in mixed]
     assert cats.count("B1") == 2 and cats.count("M10") == 3, "Category distribution mismatch (expected 2/3)"
 
-    # Test 4: cap by availability – request 10 total with 50/50 → only 5 exist
+    # Test 4: cap by availability – ask 10 with 50/50 but we only have 2 and 3 → expect 5 total
     mixed2 = mix_generate({"B1": 50, "M10": 50}, 10, base)
     assert len(mixed2) == 5, "Should cap to available when requesting more than availability"
 
-    print("Self tests passed.\n")
+    print("Self tests passed.
+")
 
+
+# -----------------------------------------------------------
+# Entrypoint
+# -----------------------------------------------------------
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=APP_TITLE)
     parser.add_argument("--cli", action="store_true", help="Run CLI fallback (no dependencies)")
@@ -620,20 +625,12 @@ if __name__ == "__main__":
         run_self_tests()
         sys.exit(0)
 
-    # If explicitly CLI, run CLI
-    if args.cli:
-        main_cli()
-        sys.exit(0)
-
-    # If env var requests streamlit and it's available, let Streamlit drive the app
-    if os.environ.get("QUIZ_MODE", "").lower() == "streamlit" and _st is not None:
-        # In Streamlit, this module is executed by `streamlit run`; we just expose main_streamlit()
-        # When executed directly, we can also call it (useful for local dev)
-        main_streamlit()
-    else:
-        # Fallback: If streamlit is not available or env not set, run CLI.
+    # Default behavior:
+    # - If streamlit is available → run Streamlit UI (no need for QUIZ_MODE)
+    # - If user explicitly passes --cli or streamlit is not available → run CLI
+    if args.cli or _st is None:
         if _st is None:
-            print("[INFO] streamlit not found → running CLI fallback. Set QUIZ_MODE=streamlit after installing streamlit.")
-        else:
-            print("[INFO] QUIZ_MODE not set to 'streamlit' → running CLI fallback. Set it and use 'streamlit run app.py' for web UI.")
+            print("[INFO] streamlit not found → running CLI fallback. Install streamlit to use the web UI.")
         main_cli()
+    else:
+        main_streamlit()
