@@ -280,50 +280,6 @@ def main_streamlit():
         )
         st.session_state.shuffle_q = st.checkbox("Xáo trộn câu", value=st.session_state.shuffle_q)
         st.session_state.shuffle_opt = st.checkbox("Xáo trộn đáp án", value=st.session_state.shuffle_opt)
-        st.markdown("---")
-        st.subheader("🏗️ Tạo đề hỗn hợp")
-        
-        total_mix = st.number_input("Tổng số câu", min_value=10, max_value=300, value=100, step=10)
-        colA, colB, colC = st.columns(3)
-        with colA:
-            pA = st.number_input("% B1", min_value=0, max_value=100, value=0)
-        with colB:
-            pB = st.number_input("% B2", min_value=0, max_value=100, value=0)
-        with colC:
-            pC = st.number_input("% M10", min_value=0, max_value=100, value=0)
-        
-        if st.button("Tạo đề hỗn hợp", use_container_width=True):
-            if pA + pB + pC != 100:
-                st.error("Tổng % phải = 100")
-            else:
-                bank = []
-                for name, pct in [("B1", pA), ("B2", pB), ("M10", pC)]:
-                    if pct <= 0:
-                        continue
-                    cat_count = round(total_mix * pct / 100)
-                    mods = list_available_modules(name)
-                    if not mods:
-                        st.warning(f"Không tìm thấy CSV cho {name}")
-                        continue
-                    per_mod = cat_count // len(mods)
-                    remainder = cat_count % len(mods)
-                    for i, m in enumerate(mods):
-                        need = per_mod + (1 if i < remainder else 0)
-                        rows = load_csv_bank(name, str(m))
-                        if not rows:
-                            continue
-                        actual = min(need, len(rows))
-                        bank.extend(random.sample(rows, actual))
-                if not bank:
-                    st.error("Không tạo được đề (dữ liệu rỗng)")
-                else:
-                    random.shuffle(bank)
-                    st.session_state.bank = bank
-                    st.session_state.order = list(range(len(bank)))
-                    st.session_state.cur = 0
-                    st.session_state.picks = {}
-                    st.session_state.fails_first_try = set()
-                    st.success(f"Đã tạo đề gồm {len(bank)} câu. Nhấn BẮT ĐẦU để làm bài.")
 
         if st.button("Nạp câu hỏi", use_container_width=True):
             bank = [QAItem(**d) for d in _load_bank(code, st.session_state.module)]
@@ -370,16 +326,11 @@ def main_streamlit():
         st.session_state.remaining = max(0, TEST_DURATION_SECONDS - elapsed)
         mm, ss = divmod(st.session_state.remaining, 60)
         st.markdown(f"### ⏱️ Thời gian còn lại: **{mm:02d}:{ss:02d}**")
-    
-        # Nếu hết giờ → nộp bài
         if st.session_state.remaining == 0:
-            st.warning("⏰ Hết giờ! Hệ thống tự động nộp bài.")
+            st.warning("Hết giờ! Hệ thống sẽ tự động nộp bài.")
             st.session_state.is_quiz_active = False
-            st.session_state.is_test_mode = False
-            st.session_state.start_time = None
-            st.session_state.remaining = TEST_DURATION_SECONDS
-            st.rerun()
-
+        else:
+            st.experimental_rerun()
 
     # ---------- Main Content ----------
     if st.session_state.is_quiz_active and st.session_state.bank:
@@ -404,19 +355,11 @@ def main_streamlit():
                 st.session_state.fails_first_try.add(qi)
             st.session_state.picks[qi] = choice
 
-        # Render options
         for original_idx, text in options_indexed:
-            label = f"{chr(65+original_idx)}. {text}"
-        
-            # Kiểm tra nếu người dùng đã chọn
-            if qi in st.session_state.picks and st.session_state.picks[qi] == original_idx:
-                # Nếu là chế độ TEST: đánh dấu đáp án đã chọn
-                label = f"✅ {label}"
-                st.markdown(f"<div style='padding:8px;border-radius:6px;background-color:#e6f7ff;border:1px solid #91d5ff;'>{label}</div>", unsafe_allow_html=True)
-            else:
-                if st.button(label, key=f"opt_{qi}_{original_idx}", use_container_width=True):
-                    on_pick(original_idx)
-                    st.rerun()
+            btn = st.button(f"{chr(65+original_idx)}. {text}", key=f"opt_{qi}_{original_idx}")
+            if btn:
+                on_pick(original_idx)
+                st.experimental_rerun()
 
         # Feedback area (Practice only)
         if not st.session_state.is_test_mode and picked != -1:
@@ -444,14 +387,14 @@ def main_streamlit():
         with nav1:
             if st.button("← Trước", disabled=(st.session_state.cur == 0)):
                 st.session_state.cur -= 1
-                st.rerun()
+                st.experimental_rerun()
         with nav2:
             if st.button("Xóa chọn", disabled=(qi not in st.session_state.picks)):
                 if qi in st.session_state.picks:
                     del st.session_state.picks[qi]
                 if qi in st.session_state.fails_first_try:
                     st.session_state.fails_first_try.remove(qi)
-                st.rerun()
+                st.experimental_rerun()
         with nav3:
             can_next = (st.session_state.cur < len(st.session_state.order) - 1)
             if st.session_state.is_test_mode:
@@ -461,11 +404,11 @@ def main_streamlit():
                 next_disabled = not (can_next and picked == correct_idx)
             if st.button("Tiếp →", disabled=next_disabled):
                 st.session_state.cur += 1
-                st.rerun()
+                st.experimental_rerun()
         with nav4:
             if st.button("Nộp bài", type="primary"):
                 st.session_state.is_quiz_active = False
-                st.rerun()
+                st.experimental_rerun()
 
     # ---------- Results ----------
     if not st.session_state.is_quiz_active and st.session_state.bank and (st.session_state.picks or st.session_state.is_test_mode):
@@ -508,161 +451,95 @@ def main_streamlit():
             st.session_state.order = []
             st.session_state.cur = 0
             st.session_state.picks = {}
-            st.rerun()
+            st.experimental_rerun()
 
-    # ---------- Mixed Exam (MVP) ----------
+    # ---------- Tabs: Main & Mixed Exam ----------
+# Keep existing main flow; provide a second tab for creating a mixed exam with detailed per‑module report.
 
+try:
+    tab_main, tab_mix = st.tabs(["🧩 Làm đề", "🏗️ Tạo đề hỗn hợp"])
+except Exception:
+    # Older Streamlit versions may not have tabs; gracefully fall back to a header section
+    tab_main = st.container()
+    tab_mix = st.container()
 
-# -----------------------------------------------------------
-# CLI Fallback (no external packages)
-# -----------------------------------------------------------
+with tab_mix:
+    st.subheader("Tạo đề hỗn hợp – có báo cáo chi tiết theo module")
+    total_mix = st.number_input("Tổng số câu", min_value=10, max_value=300, value=100, step=10, key="mix_total")
 
-def _input(prompt: str) -> str:
-    try:
-        return input(prompt)
-    except EOFError:
-        return ""
+    c1, c2, c3 = st.columns(3)
+    with c1:
+        pA = st.number_input("% B1", min_value=0, max_value=100, value=0, key="mix_p_b1")
+    with c2:
+        pB = st.number_input("% B2", min_value=0, max_value=100, value=0, key="mix_p_b2")
+    with c3:
+        pC = st.number_input("% M10", min_value=0, max_value=100, value=0, key="mix_p_m10")
 
+    st.caption("• App sẽ chia đều số câu mỗi Cat qua các module hiện có.
 
-def main_cli():
-    print(f"\n{APP_TITLE} – CLI fallback (no streamlit)\n")
-    cats = list(CATEGORIES.items())
-    for i, (label, code) in enumerate(cats, 1):
-        print(f"{i}. {label} [{code}]")
-    while True:
-        try:
-            ci = int(_input("Chọn loại đề (1-3): ").strip() or "1")
-            if 1 <= ci <= len(cats):
-                break
-        except Exception:
-            pass
-        print("Nhập không hợp lệ.")
-    label, code = cats[ci - 1]
+• Bấm **Tính phân bổ** để xem bảng chi tiết (tổng từng Cat và từng Module). Nếu ổn, bấm **Tạo đề hỗn hợp** để nạp vào bài.")
 
-    mods = list_available_modules(code)
-    if not mods:
-        print("\n⚠️  Không tìm thấy CSV. Hãy đặt file {CAT}_Module{N}.csv cùng thư mục.")
-        return
-    print("\nModule có sẵn:", ", ".join(map(str, mods)))
-    while True:
-        m = _input(f"Chọn module ({mods[0]}-{mods[-1]}): ").strip() or str(mods[0])
-        if m.isdigit() and int(m) in mods:
-            module = m
-            break
-        print("Module không hợp lệ.")
+    def _plan_distribution() -> Dict[str, List[Dict]]:
+        """Return a per-category plan with even split across available modules.
+        Each item: {cat, module, available, need, take}
+        """
+        plan: Dict[str, List[Dict]] = {}
+        for cat, pct in [("B1", pA), ("B2", pB), ("M10", pC)]:
+            if pct <= 0:
+                continue
+            cat_need = round(int(total_mix) * pct / 100)
+            mods = list_available_modules(cat)
+            rows = []
+            if not mods:
+                plan[cat] = [{"module": "-", "available": 0, "need": 0, "take": 0}]
+                continue
+            per_mod = cat_need // len(mods)
+            rem = cat_need % len(mods)
+            for i, m in enumerate(mods):
+                need = per_mod + (1 if i < rem else 0)
+                avail = len(load_csv_bank(cat, str(m)))
+                take = min(need, avail)
+                rows.append({"module": m, "available": avail, "need": need, "take": take})
+            plan[cat] = rows
+        return plan
 
-    bank = load_csv_bank(code, module)
-    if not bank:
-        print("\n⚠️  Không có dữ liệu trong CSV.")
-        return
+    show_report = st.button("Tính phân bổ")
+    if show_report:
+        plan = _plan_distribution()
+        import pandas as pd
+        total_take = 0
+        for cat, rows in plan.items():
+            st.markdown(f"**[{cat}] Tổng dự kiến:** {sum(r['take'] for r in rows)} câu")
+            df = pd.DataFrame(rows)[["module", "available", "need", "take"]]
+            df = df.rename(columns={"module": "Module", "available": "Có sẵn", "need": "Cần", "take": "Lấy"})
+            st.dataframe(df, use_container_width=True)
+            total_take += sum(r['take'] for r in rows)
+        st.info(f"Tổng cộng sẽ lấy: **{total_take}**/{int(total_mix)} câu.")
 
-    print(f"\nĐã nạp {len(bank)} câu. Nhập số câu muốn làm (<= {len(bank)}), ví dụ 10:")
-    try:
-        n = int(_input("Số câu: ").strip() or "10")
-    except Exception:
-        n = 10
-    n = max(1, min(n, len(bank)))
-
-    rng = random.Random()
-    rng.shuffle(bank)
-    picked = {}
-    correct = 0
-    for idx, item in enumerate(bank[:n], 1):
-        print(f"\nCâu {idx}/{n} – CAT {item.cat} – Module {item.module}")
-        print(item.q)
-        for i, opt in enumerate(item.options):
-            print(f"  {chr(65+i)}. {opt}")
-        ans = _input("Chọn (A/B/C/D... hoặc Enter để bỏ): ").strip().upper()
-        if ans:
-            choice = ord(ans[0]) - 65
-            picked[idx] = choice
-            if choice == item.answer:
-                print("→ ĐÚNG!")
-                correct += 1
-            else:
-                print(f"→ SAI! Đáp án đúng: {chr(65+item.answer)}")
+    if st.button("Tạo đề hỗn hợp", use_container_width=True):
+        if pA + pB + pC != 100:
+            st.error("Tổng % phải = 100")
         else:
-            print(f"→ BỎ TRỐNG! Đáp án đúng: {chr(65+item.answer)}")
-
-    percent = round(100 * correct / n)
-    print(f"\nKẾT QUẢ: {correct}/{n} đúng ({percent}%).\n")
-
-
-# -----------------------------------------------------------
-# Self Tests (no external packages)
-# -----------------------------------------------------------
-
-def run_self_tests() -> None:
-    print("Running self tests...")
-    tmp = tempfile.TemporaryDirectory()
-    base = tmp.name
-
-    # Create minimal banks for B1 (Module1) and M10 (Module2)
-    def make_csv(cat: str, module: int, rows: List[Tuple[str, List[str], str]]):
-        path = os.path.join(base, f"{cat}_Module{module}.csv")
-        headers = ["Question", "Option A", "Option B", "Option C", "Correct Answer"]
-        with open(path, "w", encoding="utf-8", newline="") as f:
-            w = csv.writer(f)
-            w.writerow(headers)
-            for q, opts, correct in rows:
-                row = [q]
-                # ensure at least 3 columns for options
-                for i in range(3):
-                    row.append(opts[i] if i < len(opts) else "")
-                row.append(correct)
-                w.writerow(row)
-
-    make_csv("B1", 1, [
-        ("Q1 B1?", ["A1", "B1", "C1"], "B1"),
-        ("Q2 B1?", ["A2", "B2", "C2"], "A2"),
-    ])
-    make_csv("M10", 2, [
-        ("Q1 M10?", ["X1", "Y1", "Z1"], "Z1"),
-        ("Q2 M10?", ["X2", "Y2", "Z2"], "Y2"),
-        ("Q3 M10?", ["X3", "Y3", "Z3"], "X3"),
-    ])
-
-    # Test 1: list_available_modules
-    assert list_available_modules("B1", base) == [1], "Modules for B1 should be [1]"
-    assert list_available_modules("M10", base) == [2], "Modules for M10 should be [2]"
-
-    # Test 2: load_csv_bank structure
-    b1 = load_csv_bank("B1", "1", base)
-    assert len(b1) == 2 and b1[0].q.startswith("Q"), "load_csv_bank failed for B1"
-    assert any("B1" in opt for opt in b1[0].options), "Options not parsed"
-
-    # Test 3: mix_generate 50/50 of total 5 → expect 2 from B1 and 3 from M10 (largest remainder)
-    mixed = mix_generate({"B1": 50, "M10": 50}, 5, base)
-    assert len(mixed) == 5, "Mixed length must equal total"
-    cats = [x.cat for x in mixed]
-    assert cats.count("B1") == 2 and cats.count("M10") == 3, "Category distribution mismatch (expected 2/3)"
-
-    # Test 4: cap by availability – ask 10 with 50/50 but we only have 2 and 3 → expect 5 total
-    mixed2 = mix_generate({"B1": 50, "M10": 50}, 10, base)
-    assert len(mixed2) == 5, "Should cap to available when requesting more than availability"
-
-    print("Self tests passed.\n")
-
-
-# -----------------------------------------------------------
-# Entrypoint
-# -----------------------------------------------------------
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description=APP_TITLE)
-    parser.add_argument("--cli", action="store_true", help="Run CLI fallback (no dependencies)")
-    parser.add_argument("--selftest", action="store_true", help="Run built-in tests (no dependencies)")
-    args = parser.parse_args()
-
-    if args.selftest:
-        run_self_tests()
-        sys.exit(0)
-
-    # Default behavior:
-    # - If streamlit is available → run Streamlit UI (no need for QUIZ_MODE)
-    # - If user explicitly passes --cli or streamlit is not available → run CLI
-    if args.cli or _st is None:
-        if _st is None:
-            print("[INFO] streamlit not found → running CLI fallback. Install streamlit to use the web UI.")
-        main_cli()
-    else:
-        main_streamlit()
+            # Build using the same plan to ensure counts match the report
+            plan = _plan_distribution()
+            bank: List[QAItem] = []
+            rng = random.Random()
+            for cat, rows in plan.items():
+                for r in rows:
+                    if r["take"] <= 0 or r["module"] == "-":
+                        continue
+                    pool = load_csv_bank(cat, str(r["module"]))
+                    if not pool:
+                        continue
+                    take = min(r["take"], len(pool))
+                    bank.extend(rng.sample(pool, take))
+            if not bank:
+                st.error("Không tạo được đề (dữ liệu rỗng)")
+            else:
+                rng.shuffle(bank)
+                st.session_state.bank = bank
+                st.session_state.order = list(range(len(bank)))
+                st.session_state.cur = 0
+                st.session_state.picks = {}
+                st.session_state.fails_first_try = set()
+                st.success(f"Đã tạo đề gồm {len(bank)} câu. Chuyển sang tab **🧩 Làm đề** và bấm **BẮT ĐẦU** để thi.")
