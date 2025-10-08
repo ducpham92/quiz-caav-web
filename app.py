@@ -237,3 +237,6 @@ def main_streamlit():
                     df = pd.DataFrame(rows); st.markdown(f"**[{cat}] Tổng dự kiến:** {df['Lấy'].sum()} câu")
                     st.dataframe(df, use_container_width=True); total_take += int(df["Lấy"].sum())
             st.info(f"Tổng cộng sẽ lấy: **{total_take}**/{int(total_mix)} câu.")
+# --- Run Streamlit UI by default ---
+if _st is not None:
+    main_streamlit()
