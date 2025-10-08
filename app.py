@@ -608,8 +608,7 @@ def run_self_tests() -> None:
     mixed2 = mix_generate({"B1": 50, "M10": 50}, 10, base)
     assert len(mixed2) == 5, "Should cap to available when requesting more than availability"
 
-    print("Self tests passed.
-")
+    print("Self tests passed.\n")
 
 
 # -----------------------------------------------------------
