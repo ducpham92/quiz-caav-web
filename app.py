@@ -326,11 +326,16 @@ def main_streamlit():
         st.session_state.remaining = max(0, TEST_DURATION_SECONDS - elapsed)
         mm, ss = divmod(st.session_state.remaining, 60)
         st.markdown(f"### ⏱️ Thời gian còn lại: **{mm:02d}:{ss:02d}**")
+    
+        # Nếu hết giờ → nộp bài
         if st.session_state.remaining == 0:
-            st.warning("Hết giờ! Hệ thống sẽ tự động nộp bài.")
+            st.warning("⏰ Hết giờ! Hệ thống tự động nộp bài.")
             st.session_state.is_quiz_active = False
-        else:
+            st.session_state.is_test_mode = False
+            st.session_state.start_time = None
+            st.session_state.remaining = TEST_DURATION_SECONDS
             st.rerun()
+
 
     # ---------- Main Content ----------
     if st.session_state.is_quiz_active and st.session_state.bank:
