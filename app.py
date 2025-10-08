@@ -330,7 +330,7 @@ def main_streamlit():
             st.warning("Hết giờ! Hệ thống sẽ tự động nộp bài.")
             st.session_state.is_quiz_active = False
         else:
-            st.experimental_rerun()
+            st.rerun()
 
     # ---------- Main Content ----------
     if st.session_state.is_quiz_active and st.session_state.bank:
@@ -359,7 +359,7 @@ def main_streamlit():
             btn = st.button(f"{chr(65+original_idx)}. {text}", key=f"opt_{qi}_{original_idx}")
             if btn:
                 on_pick(original_idx)
-                st.experimental_rerun()
+                st.rerun()
 
         # Feedback area (Practice only)
         if not st.session_state.is_test_mode and picked != -1:
@@ -387,14 +387,14 @@ def main_streamlit():
         with nav1:
             if st.button("← Trước", disabled=(st.session_state.cur == 0)):
                 st.session_state.cur -= 1
-                st.experimental_rerun()
+                st.rerun()
         with nav2:
             if st.button("Xóa chọn", disabled=(qi not in st.session_state.picks)):
                 if qi in st.session_state.picks:
                     del st.session_state.picks[qi]
                 if qi in st.session_state.fails_first_try:
                     st.session_state.fails_first_try.remove(qi)
-                st.experimental_rerun()
+                st.rerun()
         with nav3:
             can_next = (st.session_state.cur < len(st.session_state.order) - 1)
             if st.session_state.is_test_mode:
@@ -404,11 +404,11 @@ def main_streamlit():
                 next_disabled = not (can_next and picked == correct_idx)
             if st.button("Tiếp →", disabled=next_disabled):
                 st.session_state.cur += 1
-                st.experimental_rerun()
+                st.rerun()
         with nav4:
             if st.button("Nộp bài", type="primary"):
                 st.session_state.is_quiz_active = False
-                st.experimental_rerun()
+                st.rerun()
 
     # ---------- Results ----------
     if not st.session_state.is_quiz_active and st.session_state.bank and (st.session_state.picks or st.session_state.is_test_mode):
@@ -451,7 +451,7 @@ def main_streamlit():
             st.session_state.order = []
             st.session_state.cur = 0
             st.session_state.picks = {}
-            st.experimental_rerun()
+            st.rerun()
 
     # ---------- Mixed Exam (MVP) ----------
     with st.expander("Tạo đề hỗn hợp (MVP)"):
