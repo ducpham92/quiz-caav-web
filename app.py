@@ -280,6 +280,50 @@ def main_streamlit():
         )
         st.session_state.shuffle_q = st.checkbox("Xáo trộn câu", value=st.session_state.shuffle_q)
         st.session_state.shuffle_opt = st.checkbox("Xáo trộn đáp án", value=st.session_state.shuffle_opt)
+        st.markdown("---")
+        st.subheader("🏗️ Tạo đề hỗn hợp")
+        
+        total_mix = st.number_input("Tổng số câu", min_value=10, max_value=300, value=100, step=10)
+        colA, colB, colC = st.columns(3)
+        with colA:
+            pA = st.number_input("% B1", min_value=0, max_value=100, value=0)
+        with colB:
+            pB = st.number_input("% B2", min_value=0, max_value=100, value=0)
+        with colC:
+            pC = st.number_input("% M10", min_value=0, max_value=100, value=0)
+        
+        if st.button("Tạo đề hỗn hợp", use_container_width=True):
+            if pA + pB + pC != 100:
+                st.error("Tổng % phải = 100")
+            else:
+                bank = []
+                for name, pct in [("B1", pA), ("B2", pB), ("M10", pC)]:
+                    if pct <= 0:
+                        continue
+                    cat_count = round(total_mix * pct / 100)
+                    mods = list_available_modules(name)
+                    if not mods:
+                        st.warning(f"Không tìm thấy CSV cho {name}")
+                        continue
+                    per_mod = cat_count // len(mods)
+                    remainder = cat_count % len(mods)
+                    for i, m in enumerate(mods):
+                        need = per_mod + (1 if i < remainder else 0)
+                        rows = load_csv_bank(name, str(m))
+                        if not rows:
+                            continue
+                        actual = min(need, len(rows))
+                        bank.extend(random.sample(rows, actual))
+                if not bank:
+                    st.error("Không tạo được đề (dữ liệu rỗng)")
+                else:
+                    random.shuffle(bank)
+                    st.session_state.bank = bank
+                    st.session_state.order = list(range(len(bank)))
+                    st.session_state.cur = 0
+                    st.session_state.picks = {}
+                    st.session_state.fails_first_try = set()
+                    st.success(f"Đã tạo đề gồm {len(bank)} câu. Nhấn BẮT ĐẦU để làm bài.")
 
         if st.button("Nạp câu hỏi", use_container_width=True):
             bank = [QAItem(**d) for d in _load_bank(code, st.session_state.module)]
@@ -467,30 +511,6 @@ def main_streamlit():
             st.rerun()
 
     # ---------- Mixed Exam (MVP) ----------
-    with st.expander("Tạo đề hỗn hợp (MVP)"):
-        total_mix = st.number_input("Tổng số câu", min_value=10, max_value=300, value=100, step=10)
-        colA, colB, colC = st.columns(3)
-        with colA:
-            pA = st.number_input("% B1", min_value=0, max_value=100, value=0)
-        with colB:
-            pB = st.number_input("% B2", min_value=0, max_value=100, value=0)
-        with colC:
-            pC = st.number_input("% M10", min_value=0, max_value=100, value=0)
-        if st.button("Tạo đề hỗn hợp"):
-            try:
-                bank = mix_generate({"B1": pA, "B2": pB, "M10": pC}, int(total_mix))
-                if not bank:
-                    st.error("Không tạo được đề (dữ liệu rỗng)")
-                else:
-                    random.shuffle(bank)
-                    st.session_state.bank = bank
-                    st.session_state.order = list(range(len(bank)))
-                    st.session_state.cur = 0
-                    st.session_state.picks = {}
-                    st.session_state.fails_first_try = set()
-                    st.success(f"Đã tạo đề gồm {len(bank)} câu. Nhấn BẮT ĐẦU để làm bài.")
-            except ValueError as e:
-                st.error(str(e))
 
 
 # -----------------------------------------------------------
