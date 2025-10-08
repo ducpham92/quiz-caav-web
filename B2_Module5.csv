@@ -1,0 +1,247 @@
+﻿Question,Option A,Option B,Option C,Correct Answer
+686. All Monitors for EIS,are same type in all aircrafts,are same type in an aircraft,are difference type in an aircraft,are same type in an aircraft
+687. All modern aircraft use,Electronic Instrument Display Systems,Analoge Indicator,Analoge technology,Electronic Instrument Display Systems
+688. A typical Electronic System has the following components,"Display Computers, Display Units and Control Panels","Display Computers, Display Units and Keyboards","Display Computers, Display Units and Mouse","Display Computers, Display Units and Control Panels"
+689. What generation of display unit are installed in the early 80’s,LCD display units,Simple cathod ray tubes,Display units,Simple cathod ray tubes
+690. Which generation of display unit are installed since 90’s,LCD display units,Simple cathod ray tubes,Analogue Display Units,LCD display units
+691. Which Display Unit indicate the data of naviagtion system?,Primary Flight Display (PFD),Navigation Display (ND),System Display (SD),Navigation Display (ND)
+692. The lower center display unit is called,System display,Engine Indication display,Warning display,System display
+693. The two groups indicators in the cockpit are,Flight surveillance and Engine surveillance,Aircraft surveillance and Engine surveillance,Flight surveillance and Aircraft surveillance,Flight surveillance and Aircraft surveillance
+694. The inputs of Display computers are:,"Navigation data, Auto Flight System data and Display Unit",Engine data and Auto Flight System data and Display Unit,"Navigation data, Auto Flight System data, Engine data and Data from various aircraft systems.","Navigation data, Auto Flight System data, Engine data and Data from various aircraft systems."
+695. Each pilot has two Display Units. They are,Primary Flight Display (PFD) and System Display (SD),Primary Flight Display (PFD) and Navigation Display (ND),Navigation Display (ND) and System Display (SD),Primary Flight Display (PFD) and Navigation Display (ND)
+696. How many display computers on aircraft?,Two display computers,Three display computers,There are at least two display computers. Large aircraft have a third display computer for redundancy,There are at least two display computers. Large aircraft have a third display computer for redundancy
+697. Which informations are displayed on the Electronic Flight Instruments?,The navigation data,The navigation data and the information about the activities of the auto flight system,The information about the activities of the auto flight system,The navigation data and the information about the activities of the auto flight system
+698. The upper center display shows,Alerts from various aircraft systems if something is out of limit,Aircraft System data,The information about the activities of the auto flight system,Alerts from various aircraft systems if something is out of limit
+699. Which components are form a display unit,Cathod ray tube and Symbol Generator Unit (SGU),Cathod ray tube and symbol generator,Cathod ray tube and Display Management Computer (DMC),Cathod ray tube and symbol generator
+700. Which indicator is belongs to Flight surveillance group?,Heading indicator,Position Indication,EGT indicator,Heading indicator
+701. Which indicator is belongs to Aircraft surveillance group?,Position indication,Altimeter,Fuel indicator,Position indication
+702. Which indicator is belongs to Engine surveillance group?,Speed indicator,Pressure indication,RPM indicators,RPM indicators
+703. In older systems video data transfers to the display are from,Symbol Generator Unit (SGU),Display Management Computer (DMC),Aircraft System Computers,Symbol Generator Unit (SGU)
+704. In newer system. Which components are supplied with information (data) via ARINC 429 data bus or similar busses?,The displays contain a symbol generator,The symbol generator,Display Management Computer (DMC),The displays contain a symbol generator
+705. In newer system. Which components creat the picture?,Symbol Generator Unit (SGU),The displays contain a symbol generator,Display Management Computer (DMC),The displays contain a symbol generator
+706. In Newer EIS Systems. Each display unit receives data from,One Display Management Computer (DMC),One main and one standby Display Management Computer (DMC),All the three Display Management Computer (DMC),All the three Display Management Computer (DMC)
+707. The Weather Radar Picture is transferred to the display with,ARINC 429 data bus,A dedicated ARINC 453 data bus,A dedicated ARINC 629 data bus,A dedicated ARINC 453 data bus
+708. Which data bus is used for EGPWS?,ARINC 429 data bus,A dedicated ARINC 629 data bus,ARINC 453 data bus,ARINC 453 data bus
+709. If one monitor of EIS fails its information,Can be transferred to an other monitor,Will lost,Remain displayed at last,Can be transferred to an other monitor
+710. In modern aircraft. When Pilot operation of a push button on a cockpit control panel will be,Acted on by the processor,Transmitted via the data bus to the receiver systems,Acted on by the processor and transmitted via the data bus to the receiver systems,Acted on by the processor and transmitted via the data bus to the receiver systems
+711. In modern aircraft. Necessary parameters are fed,"In analoge form to a radio transmitter, which sends data to ground","In digital form to a radio transmitter, which sends data to ground","In discrete form to a radio transmitter, which sends data to ground","In digital form to a radio transmitter, which sends data to ground"
+712. The Navigation data send to the Display Units are,Digital data,Analogue Data,Digital and Analogue data,Digital data
+713. The Engine data send to the Display Units are,Analogue Data,Discrete data,Digital data,Digital data
+714. Display computers receive various inputs from many aircraft systems and send these data to the Display Units. The input are,Navigation data and auto flight system data,"Navigation data, auto flight system data and engine data","Navigation data, auto flight system data, engine data and data from various aircraft systems","Navigation data, auto flight system data, engine data and data from various aircraft systems"
+715. The Obstacles that exceed the the aircraft altitude will be indicated in,Red,yellow,green,Red
+716. To perfom function. The EGPWS,Use external sensors for the picture composition,"By using Present Position (PP), altitude and attitude the correct indication will be composed from the data base",Use internal sensors for the picture composition,"By using Present Position (PP), altitude and attitude the correct indication will be composed from the data base"
+717. The Base of Binary Number System is,2,6,8,2
+718. What is used for the power of 10?,Binary.,Decimal.,Octal,Decimal.
+"719. If a data message is made up of 1s and 0s, it is.",analogue,binary,digital,digital
+720. A hexadecimal is a number to base,2,8,16,16
+721. A computer message 3B4 is.,Binary,hexadecimal,Octal,hexadecimal
+722. What systems use base 16?,Octal,Decimal,Hexadecimal,Hexadecimal
+723. Convert the hexadecimal number D into decimal,12,13,14,13
+724. Convert decimal 15 into hexadecimal,F,G,H,F
+725. 0011011000101001 when transferred to computer language this information can be a representation of,"Hex, octal and decimal numbers","Binary, octal or decimal numbers","Hex, octal and binary numbers","Hex, octal and decimal numbers"
+726. The binary number 11010111 expressed as a decimal is.,215,223,207,215
+727. 1012 converted to decimal is.,5 base 2,2 base 10,5 base 10,5 base 10
+728. Convert the binary word 1110 to decimal,12,14,15,14
+729. Decimal 10 converted to binary is,1010,1000,1001,1010
+730. The octal number 1001 expressed as a decimal is,9,65,513,513
+731. The binary number 1010100011100101 Base2 in hexadecimal is,22BC Base 16,FFFF Base 16,A8E5 Base 16,A8E5 Base 16
+732. Hexadecimal 5C is what in binary?,1011111,1011100,1110100,1011100
+733. What is octal 33 in hexadecimal?,1A,1B,1C,1B
+734. Convert 2C hex to octal.,35,212,54,54
+"735. A number represented as a physical quantity, e.g. voltage or speed of rotation is",digital,analogue,Discrete,analogue
+736. If a signal has quantity in volts and physical position it is,digital,synchronous,analogue,analogue
+737. An A/D (Analogue/Digital) converter converts,"A continuous voltage signal, or analog signal into a multi-bit digital word",A continuous voltage signal into a multi-bit digital word,Discrete signal into a multi-bit digital word,"A continuous voltage signal, or analog signal into a multi-bit digital word"
+738. The sawtooth principle uses,a sawtooth created by the converter and compates it with the output voltage,a sawtooth created by the converter and compates it with the input voltage,a sawtooth created by the converter and compates it with the input current,a sawtooth created by the converter and compates it with the input voltage
+739. A ramp generation A/D converter compares,the unknown input voltage to a D/A with output voltage,the certain input voltage to a D/A connected as a ramp generator,the unknown input voltage to a D/A connected as a ramp generator,the unknown input voltage to a D/A connected as a ramp generator
+740. If the Ramp Generation A/D input voltage is higher,the conversion time is longer,the conversion time is shorter,the conversion time remain the same,the conversion time is longer
+741. The successive approximation A/D is,Similar to the ramp generation A/D except that a programmer is used to control the D/A Ladder network,The same as the ramp generation A/D,Much slower than the counting type methods,Similar to the ramp generation A/D except that a programmer is used to control the D/A Ladder network
+742. D/A (Digital/ Analogue) Converters convert,decimal input information into an analogue output voltage,binary input information into an analogue output voltage,binary input information into an analogue output current,binary input information into an analogue output voltage
+743. The R-2R Ladder network is,another type of Operational Amplifiers,another type of A/D converter,another type of D/A converter,another type of D/A converter
+744. The advantage of the Sawtooth Principle is,The quite simple arrangement,The temperature-sensitive as the pulse generators are not temperature-compensated,They can be used for fast changing voltages,The quite simple arrangement
+"745. According the Sawtooth Principle. In case the output voltage of the comparator is ""1""","The pulses from the pulse generator will be blocked, they can’t pass the AND gate any more",The pulses from the pulse generator can pass the OR gate,The pulses from the pulse generator can pass the AND gate,The pulses from the pulse generator can pass the AND gate
+746. For an 8-bit word the successive approximation takes,256 clock cycles,64 clock cycles,8 clock cycles,256 clock cycles
+747. An A to D converter uses successive approximation to,increase resolution,increase accuracy,increase speed,increase speed
+748. The advantages Successive Approximation A/D are,Wide input voltage ranges,Wide input voltage ranges and good resolution,Setup is more simple than on most other types,Wide input voltage ranges and good resolution
+749. In D/A Converter. a binary input 0111 will be converted in an analogue output voltage of,7 Volts,111 Volts,5 Volts,7 Volts
+750. In D/A Converter. The more Bit input,the higher input voltage will be,the lower the accuracy of the output voltage will be,the higher the accuracy of the output voltage will be,the higher the accuracy of the output voltage will be
+751. In D/A Converter usually OpAms are used to convert binary numbers into analogue output voltages. The OpAmp will act as,A subtracter,An addder,An Inverter,An addder
+752. An R-2R D to A converter uses,two values of resistors whose precision is not important,two values of precision resistors,resistors whose values are logarithmic,two values of resistors whose precision is not important
+753. Why does an ARINC databus system send data to LRUs in series?,Saves weight,More information can be sent,Takes less time,Saves weight
+754. An ARINC 429 bus uses,a single twin cable for each transmitter,a twisted shielded pair of wires,"two bi-directional twin, sheathed and earthed wires",a twisted shielded pair of wires
+"755. In the ARINC 429 digital information transfer system, data may travel in",both directions on the same bus simultaneously,one direction only,both directions on the same bus sequentially by time multiplexing,one direction only
+756. ARINC 629 is used for,emergency only,a backup to ARINC 429,supports a multi-transmitter and bidirectional approach to digital data communications,supports a multi-transmitter and bidirectional approach to digital data communications
+757. ARINC 629 is,half duplex,full duplex,simplex,half duplex
+758. A simplex system has,"one transmitter, one receiver",a bus controller and separate controller,"one transmitter, many receivers","one transmitter, many receivers"
+759. An ARINC 429 system uses a.,20 bit word over a bi-directional bus,32 bit word over a twisted pair of wires,16 bit word over a twisted pair of wires,32 bit word over a twisted pair of wires
+760. RZ bi-polar modulation consists of bits which are one of __________ states?,Two,Three,Four,Three
+761. Where is the parity bit installed in a data word?,Front,End LSB,End MSB,End MSB
+762. What system uses base 8?,"ARINC 429, in dataword labels only",ARINC 573,ARINC 629,"ARINC 429, in dataword labels only"
+763. ARINC 429 data bus systems uses,Binary coded decimal,Octal numbering,Hexadecimal numbering,Binary coded decimal
+764. Which of the following ARINCs is bidirectional?,429,573,629,629
+765. ARINC 429 SDI word format is at bits,32,30-31,9-10,9-10
+766. In an ARINC 429 digital word bit number 32 is used for,terminating the data field,identifying word type,checking parity,checking parity
+"767. In an ARINC 429 Word label-representing heading is 320, this is represented in bits 1- 8 as",01011001,00001011,01101000,00001011
+768. How is the word label 206 written in ARINC 429?,Binary 11000110,Octal 01100001,Decimal 206,Octal 01100001
+769. An ARINC 429 Binary Coded Decimal word occupies word bits,1-8,11-28,11-29,11-29
+"770. In ARINC 429 data field is bits 11 to 28. If the bits 11 to 18 had pad bits, the L.S.B. Of the data would be",Bit 11,Bit 18,Bit 19,Bit 19
+771. An ARINC 629 stub cable,connects single directional data between the LRU and current mode coupler,connects bi-directional data between the LRU and current mode coupler,connects bi-directional data between two LRUs,connects bi-directional data between the LRU and current mode coupler
+772. The general arrangement of ARINC 629 includes,"databus cable, current mode coupler, stub cable","current mode coupler, databus cable only","current mode coupler, stub cable only","databus cable, current mode coupler, stub cable"
+773. To connect an LRU to the data bus,a terminal controller and interface module only is required,"current mode coupler, terminal controller and a production break is required","a current mode coupler, serial interface module and terminal controller is required","a current mode coupler, serial interface module and terminal controller is required"
+774. ARINC 629 current mode couplers are,capacitive,inductive,resistive,inductive
+775. ARINC 629 Databus cables are terminated using,100 ohms resistor,50 ohms resistor,130 ohms resistor,130 ohms resistor
+776. What is the purpose of intermediate production breaks in ARINC 429 or 629 Data cables?,Cables are only manufactured 40 feet long,To allow maintenance personnel to divide the right and left system buses into two parts for easy removal and installation,To allow connection of new cables to the existing ones in case of a modification,To allow maintenance personnel to divide the right and left system buses into two parts for easy removal and installation
+"777. When the voltage that represents a logic 1 state is less than the voltage that represents a logic 0 state, the logic being used is",positive,negative,either positive or negative,negative
+778. In Positive Logic representation,state 1 is more positive than state 0,state 0 is more positive than state 1,both states have same positive voltages but stage 1 has more current,state 1 is more positive than state 0
+779. The output of a NOT gate is logic 1. The input is,logic 0,logic 1,both logic 0 and 1,logic 0
+780. For logical combination there are only three basic functions,"INVERTER function, AND function and SUB function","INVERTER function, SUB function and OR function","INVERTER function, AND function and OR function","INVERTER function, AND function and OR function"
+781. With INVERTER function. What is correct statement?,If the input signal is a logical 1. The output signal is also a logical 1,If the input signal is a logical 0. The output signal is also a logical 0,If the input signal is a logical 1. The output signal is a logical 0 and vice versa,If the input signal is a logical 1. The output signal is a logical 0 and vice versa
+782. The Inverter (NOT-Function),inverts the input signal,is called a boolean complement,inverts the input signal. It is also called a boolean complement,inverts the input signal. It is also called a boolean complement
+"784. For logic AND gate, the output has a logic 0 if",All inputs have a logic 0,One or more inputs have a logic 0,All inputs have a logic 1,One or more inputs have a logic 0
+"785. For logic AND gate, the output has a logic 1 if",All inputs have a logic 1,One or more inputs have a logic 1,All inputs have a logic 0,All inputs have a logic 1
+786. Which logic gate has both inputs high to get an output?,AND gate,OR gate,NAND gate,AND gate
+787. An AND gate output is 1 when inputs are,both 0.,both 1,1 and 0,both 1
+788. The output of an AND gate having two inputs A and B is logic 1. The two inputs will have the logic states of,"A = 0, B = 0","A = 1, B = 0","A = 1, B = 1","A = 1, B = 1"
+789. An AND-Gate may have,two or more inputs (E1 to En) and one output (A),One input (E) and one output (A),One input (E) and two or more outputs (A1 to An),two or more inputs (E1 to En) and one output (A)
+"790. For logic OR gate, the output has a logic 1 if",All inputs have a logic 1,All inputs have a logic 0,One or more inputs have logic 1,One or more inputs have logic 1
+"791. For logic OR gate, the output has a logic 0 if","All inputs have a logic 1,",All inputs have a logic 0,One or more inputs have logic 0,All inputs have a logic 0
+792. The output of an OR gate having two inputs A and B is logic 0. The two inputs will have the logic states of,"A = 1, B = 0.","A = 0, B = 0","A = 1, B = 1","A = 0, B = 0"
+793. An OR-Gate may have,two or more inputs (E1 to En) and one output (A),One input (E) and one output (A),One input (E) and two or more outputs (A1 to An),two or more inputs (E1 to En) and one output (A)
+794. An Exclusive OR has,two or more inputs (E1 to En) and one output A,two inputs (E1 and E2) and one output A,one input (E) and two outputs (A),two inputs (E1 and E2) and one output A
+795. An Exclusive NOR has,two inputs (E1 and E2) and one output A,two or more inputs ( E1 to En) and one output A,one input (E) and two outputs (A),two inputs (E1 and E2) and one output A
+796. According to De Morgan Theorem,an AND may be replaced by an OR with all inputs inverted,an AND may be replaced by an OR with the output inverted,an AND may be replaced by an OR with all inputs and the output inverted,an AND may be replaced by an OR with all inputs and the output inverted
+797. In accordance with the Shannon Theorem,an AND may be replaced by an OR with all inputs inverted,a NAND can be replaced by an OR with inverted inputs,a NAND can be replaced by an OR with inverted output,a NAND can be replaced by an OR with inverted inputs
+798. An AND gate with inverted inputs and an inverted output is equivalent to,an OR gate,a NOR gate,a NAND gate,an OR gate
+"799. A NAND gate has inputs A and B and output C. If the output (c) was zero, what are the inputs?","A=0, B=0","A=1, B=1","A=1, B=0","A=1, B=1"
+800. Adding invertors to the two inputs of an AND gate makes a,OR gate,NOR gate,NAND gate,NOR gate
+801. What sort of gate requires two positive voltages to operate?,AND,OR,NAND,AND
+802. Which logic gate can be represented as a parallel circuit?,OR gate,Exclusive OR gate,AND gate,OR gate
+"803. For logic NAND gate (Not-AND-Gate), the output have logic 1 if",All inputs have a logic 1,One input has a logic 1,One input has a logic 0,One input has a logic 0
+"804. For logic NAND gate (Not-AND-Gate), the output have logic 0 if",All inputs have a logic 0,All inputs have a logic 1,One input has a logic 1,All inputs have a logic 1
+805. What sort of gate requires two negative input voltages to operate?,NAND,AND,NOR,NAND
+806. A NOR gate with both inputs inverted becomes a.,NAND gate,OR gate,AND gate,AND gate
+"807. For logic NOR gate (Not-OR), the output have logic 0 if",All inputs have a logic 0,All inputs have a logic 1,One or more inputs have a logic 1,One or more inputs have a logic 1
+"808. For logic NOR gate (Not-OR), the output have logic 1 if",All inputs have a logic 1,All inputs have a logic 0,One or more inputs have a logic 0,All inputs have a logic 0
+809. An Exclusive OR has two inputs and one output. The output has a logic 1 if:,One input has a logic 1 and one input a logic 0,Both inputs have logic 1,Both inputs have logic 0,One input has a logic 1 and one input a logic 0
+810. An Exclusive OR has two inputs and one output. The output has a logic 0 if:,Both inputs have logic 1,Both inputs have logic 0,Both inputs have logic 1 or logic 0,Both inputs have logic 1 or logic 0
+811. The truth table of inputs E1 =0011 E2=0101 and output A =0110 indicates that the logic device is.,an ECLUSIVE OR gate,a NOR gate,an ECLUSIVE AND gate,an ECLUSIVE OR gate
+812. An Exclusive NOR has two inputs and one output. The output has a logic 1 if:,Both inputs have logic 1,Both inputs have logic 0,Both inputs have logic 1 or logic 0,Both inputs have logic 1 or logic 0
+813. An Exclusive NOR has two inputs and one output. The output has a logic 0 if:,One input has a logic 1 and one input a logic 0,Both inputs have logic 1,Both inputs have logic 0,One input has a logic 1 and one input a logic 0
+814. The truth table of inputs E1 =0011 E2=0101 and output A =1001 indicates that the logic device is.,an ECLUSIVE OR gate,a NOR gate,an ECLUSIVE AND gate,a NOR gate
+815. With 2 inputs. How many functions are possible?,2,8,16,16
+816. DTL (Diode Transistor Logic) Nand-Gate. the transistor opens and the,,,,
+817. output will be at 0 Volts,"Only in case all inputs (A, B and C) are at 5 V","Only in case all inputs (A, B and C) are at 0 V","In case one or more inputs (A, B and C) are at 5 V","Only in case all inputs (A, B and C) are at 5 V"
+818. DTL (Diode Transistor Logic) NOR-Gate. the transistor opens and the,,,,
+819. output will be at 0 Volts,"Only in case all inputs (A, B and C) are at 5 V","Only in case all inputs (A, B and C) are at 0 V","In case one or more inputs (A, B and C) are at 5 V","In case one or more inputs (A, B and C) are at 5 V"
+820. What is a Computer?,is a machine that processes data by means of digital technologies,is a machine that processes data by means of analogue technologies,is a machine that receive data by means of digital technologies,is a machine that processes data by means of digital technologies
+821. What does Hardware mean?,all devices that are required to process binary data in analogue systems,all devices that are required to collect binary data in analogue systems,all devices and components that are required to process binary data in digital systems,all devices and components that are required to process binary data in digital systems
+822. What is the software?,Software is an order of instructions that tells how to process data,Software is a common word which is used to describe all kinds of programms,Software is a programm,Software is a common word which is used to describe all kinds of programms
+823. Which following form a computer?,Hardware and Processor,Program and Software,Hardware and Software,Hardware and Software
+824. A computer consist of at least the C.P.U and,Memory and input & output port,"Memory, ALU, input & output port","Memory, input & output interface and bus system","Memory, input & output interface and bus system"
+825. A basic computer would consist of,"Register section, ALU and timing and control section","Memory, input/output interface and CPU",RAM/ROM and input/output ports,
+826. A CPU (Core Processing Unit) for contains,"the ALU (Arithmentic-Logic Unit), register and instruction decoder","the ALU (Arithmentic-Logic Unit), register, instruction decoder and timing/logic control","the ALU (Arithmentic-Logic Unit), register and timing/logic control","the ALU (Arithmentic-Logic Unit), register, instruction decoder and timing/logic control"
+"827. Within a computer controlled flight system, position feedback is converted from",position feedback to rate feedback,analogue to digital,digital to analogue,analogue to digital
+828. A BYTE is usually,an 8 bit word,a six bit word,a 32 bit word,an 8 bit word
+829. The smallest amount of information that is possible is,a Bit,a Byte,a Word,a Bit
+830. A bit is,"""0"" Information","""1"" Information","""0"" or ""1"" Information","""0"" or ""1"" Information"
+831. What is EPROM?,Erasable programmable read only memory,Enhanced programmable read only memory,Erasable programming read only module,Erasable programmable read only memory
+832. Which components are In the “Computation“ section of the FCC?,Processor and Analogue Digital Converter,Processor and Memory,Processor and Bus-System,Processor and Memory
+833. How many bytes can be carried in a 32 bit word?,8 bytes,32 bytes,4 bytes,4 bytes
+834. The advantage of DRAM over SRAM is,Are cheaper to manufacture,Has a larger storage capacity per chip area,They operate slower,Has a larger storage capacity per chip area
+835. DRAM,requires a refreshing charge,memory is stored when power supply is removed,it does not require a refreshing charge,requires a refreshing charge
+836. Which type of memory that the information stored is lost as soon as the power supply is switched off?,ROM,PROM,RAM,RAM
+837. Which type of memory keep their information even if the power supply is switched off?,ROM only,All ROM,RAM,All ROM
+838. Which memory where information also can be altered?,EEPROM,EPROM,EAPROM,EAPROM
+839. An EPROM,requires constant refreshing,is non-volatile memory,is erased after reading,is non-volatile memory
+840. Which memory can be erased electrical and then be,,,,
+841. reprogrammed?,EPROM,ROM,EEPROM,EEPROM
+842. Which memory is Volatile memory?,RAM,ROM,PROM,RAM
+843. Which memory can not Programmable?,ROM,EEPROM,RAM,ROM
+844. Which memory can Programmable numerous times in the system?,PROM,EPROM,EEPROM and EAPROM,EEPROM and EAPROM
+845. What is the purpose of the ALU?,To store data being used by the CPU,The part of the CPU unit where arithmetic & logic operations are carried out,To convert serial into parallel data,The part of the CPU unit where arithmetic & logic operations are carried out
+846. Which would have the least components?,ALU (arithmetic and logic unit),CPU (Central Processor Unit),LSI (Large Scale Integration),ALU (arithmetic and logic unit)
+847. The CPU requires a clock to determine,the number of bits on the highway,the speed of operation,the date and time,the speed of operation
+848. A clock pulse in processor equipment,is to synchronise everything,is used for the maintenance tests,is to give the correct timing when calculations are made,is to synchronise everything
+849. How many main parts of the Central Processor Unit (CPU)?,6,8,12,6
+850. A computer processor has within it,"register, buffer, data bus","ALU, register, memory","ALU, control section, register","ALU, control section, register"
+851. The CPU consists of,"ALU, control unit, registers",register and arithmetic logic unit only,ALU and control section only,"ALU, control unit, registers"
+852. The Central Processing Unit (CPU) can be said to be,the input of the microcomputer,the heart of the microcomputer,the output of the microcomputer,the heart of the microcomputer
+853. The arithmetic logic unit (ALU) in a central processor unit (CPU) carries out,"addition, subtraction, multiplication and division",computations as instructed,timing and synchronisation,"addition, subtraction, multiplication and division"
+854. An ALU performs the following,"Arithmetic, Logic, Branch and Move Operations","Input/Output operations, Arithmetic, Logic Functions","Arithmetic, Logic, Branch and Find Operations","Input/Output operations, Arithmetic, Logic Functions"
+855. Where does the clock signal in a microprocessor come from?,ALU,Memory,Control unit,Control unit
+856. Where is the operating program for the CPU stored?,Control unit,ALU,Memory unit,Memory unit
+857. The data registers are used to,Memory data into the CPU,Control the transmission of data into or out of the CPU,Performs all the calculations,Control the transmission of data into or out of the CPU
+858. Which component perform a single bit shift left?,Accumulator,Shift Register,Arithmetic and logic unit (ALU),Arithmetic and logic unit (ALU)
+859. Arithmetic and logical operations on data are performed by,The microprocessor contains a central processing unit (CPU),Control Unit,Register,The microprocessor contains a central processing unit (CPU)
+860. Which component provides the logical and computational capabilities of the microcomputer?,Control Unit,Register Section,ALU,ALU
+861. The operation of the ALU and associated CPU section are synchronized by,Timing commands from the control unit,Timing commands from the timer,A synchronizer,Timing commands from the control unit
+862. The logic or decision making circuits allow the ALU to,compare two numbers,determine if the numbers are or are not equal,compare two numbers and determine if the numbers are or are not equal,compare two numbers and determine if the numbers are or are not equal
+863. Data is converted from serial to parallel and parallel to serial by,a synchronous counter,a parallel register,a shift register,a shift register
+"864. A device, which converts serial to parallel and parallel to serial for arithmetical functions, is a",Multiplexer and De-Multiplexer,Shift Register,Parallel to serial and serial to parallel converter,Shift Register
+865. Parallel data is,processed one bit at a time,processed in groups of bits called data words,used for two-wire data transmission,processed in groups of bits called data words
+866. Which data format is used within,,,,
+867. most microprocessor systems and internal memory devices?,Parallel data,Serial data,Both Parallel data and Serial data,Parallel data
+868. The Parallel data format is used,within most microprocessor systems,for two-wire data transmission and storage in some memory devices,within most microprocessor systems and internal memory devices,within most microprocessor systems and internal memory devices
+869. What is the function of a status register in a microprocessor?,To indicate the status of the processor,"In the ALU, to store the position of the program during an interrupt",To synchronize the clock pulse,To indicate the status of the processor
+870. Three types of converter are given,"Encoder, Converter and Decoder","Encoder, Converter and Adder","Encoder, Adder and Decoder","Encoder, Converter and Decoder"
+871. An ENCODER converts,The input message with a higher amount of bit to a lower amount of bits at the output,One code to the other code with identical amount of bits,The input message with a lower amount of bits into an output with higher amount of bits,The input message with a higher amount of bit to a lower amount of bits at the output
+872. A CONVERTER converts,The input message with a higher amount of bit to a lower amount of bits at the output,One code to the other code with identical amount of bits,The input message with a lower amount of bits into an output with higher amount of bits,One code to the other code with identical amount of bits
+873. A DECODER converts,The input message with a higher amount of bit to a lower amount of bits at the output,One code to the other code with identical amount of bits,The input message with a lower amount of bits into an output with higher amount of bits,The input message with a lower amount of bits into an output with higher amount of bits
+874. Integrated Circuits are,"devices that contain several electronic components in one common housing like transistors, diodes, resistors and capacitors","devices that contain several electronic components in one common housing like transistors, diodes, resistors and inductors","devices that contain several electronic components in one common housing like transistors, diodes, resistors, inductors and capacitors","devices that contain several electronic components in one common housing like transistors, diodes, resistors and capacitors"
+875. Very Large Scale Integrated (VLSI) means the number of gates in a single IC is,"Up to 10,000","Up to 100,000","Up to 1,000.000","Up to 1,000.000"
+876. An encoder changes,digital to analogue,data from one format to another,analogue to digital,data from one format to another
+877. Medium Scale Integration (MSI) means the number of gates in a single IC is,A few hundred components per chip,Some thousands components per chip,A miliion components per chip,A few hundred components per chip
+878. Large Scale Integration (LSI) means the number of gates in a single IC is,A few hundred components per chip,Some thousands components per chip,A miliion components per chip,Some thousands components per chip
+879. The first integrated circuits came into mass production in,the early 1900ies,the early 50ies,the early 60ies,the early 60ies
+880. The first integrated circuits contained,only a few components,some thousands components per chip,some 100.000 components up to 1.000.000,only a few components
+881. The comparator compares two code words for the statement,both are equal,both are not equal,both are equal or both are not equal,both are equal or both are not equal
+882. What is the device used to convert Binary Coded Decimal into separate supplies for a seven segment digital display?,Multiplexer,Decoder,Demultiplexer,Decoder
+883. A priority encoder,outputs the highest input,outputs the selected input,outputs the lowest input,outputs the highest input
+"884. In priority circuit with 4 inputs in priority order A,B,C,D and 4 outputs A0, B0, C0, D0. The output B0 is a logic 1 if",the input B is a logic 1,the input B is a logic 0,"the input B is a logic 1, but only if the input A is a logic 0","the input B is a logic 1, but only if the input A is a logic 0"
+"885. In priority circuit with 4 inputs in priority order A,B,C,D and 4 outputs A0, B0, C0, D0. If input A has a logic 1","The output Ao has a logic 1 but the outputs Bo, Co and Do have to be logic 0",All outputs have logic 1,All outputs have logic 0,"The output Ao has a logic 1 but the outputs Bo, Co and Do have to be logic 0"
+"886. In Priority Circuit with Inputs in order A, B, C, D and outputs in orders A0, B0, C0,D0. If in put A has a logic 1","All oupts (A0, B0, C0, D0) have logic 1","The output Ao has a logic 1 but the outputs Bo, Co and Do have to be logic 0","All oupts (A0, B0, C0, D0) have logic 0","The output Ao has a logic 1 but the outputs Bo, Co and Do have to be logic 0"
+887. The parity control is called EVEN-Parity,"If the sum of all transmitted logic 1s on the Data Lines is EVEN, and the Parity Generator generates a logic 0 on the parity line","If the sum of all transmitted logic 0s on the Data Lines is EVEN, and the Parity Generator generates a logic 1 on the parity line","If the sum of all transmitted logic 1s on the Data Lines is ODD, and the Parity Generator generates a logic 0 on the parity line","If the sum of all transmitted logic 1s on the Data Lines is EVEN, and the Parity Generator generates a logic 0 on the parity line"
+891. The parity control is called ODD-Parity,"If the sum of all transmitted logic 1s on the Data Lines is EVEN, and Parity Generator generates a logic 0 on the parity line","If the sum of all transmitted logic 1s on the Data Lines is EVEN, and Parity Generator generates a logic 1 on the parity line","If the sum of all transmitted logic 0s on the Data Lines is EVEN, and Parity Generator generates a logic 0 on the parity line","If the sum of all transmitted logic 1s on the Data Lines is EVEN, and Parity Generator generates a logic 1 on the parity line"
+892. The Karnaugh-Veitch diagram is used to,optimize digital circuitry,minimize the amount of necessary gates,optimize digital circuitry and minimize the amount of necessary gates,optimize digital circuitry and minimize the amount of necessary gates
+"893. Within a 3 bit frequency cascade, division is to",2,4,8,8
+"894. When 4 binary serial counters are connected in cascade for frequency division, what division factor is required?",16,8,4,16
+895. When perform grouping two inputs logic. We have,one group are possible,4 groups are possible,two groups are possible,two groups are possible
+896. What is correct for grouping?,Overlapping is impossible. All groups must contain the maximum number of ”1 ”s,Overlapping is possible. All groups must contain the maximum number of ”1 ”s,Overlapping is possible. All groups must contain the minimum number of ”1 ”s,Overlapping is possible. All groups must contain the maximum number of ”1 ”s
+897. Controlled Switches are,Logic arrangements that enable applying information from several inputs on a giben amount of output lines,On/Off switch,Termination,Logic arrangements that enable applying information from several inputs on a giben amount of output lines
+898. With Controlled Switches. an assignment from the input lines can be achieved by using,Select Lines,Input lines,Output lines,Select Lines
+899. An 8 data input multiplexer has how many Data Select lines,8,3,2,3
+900. How many address lines would be needed for an 8 line MU?,8,2,3,3
+901. A multiplexer,takes one signal in and converts it to a parallel transmission output,takes many signals in and puts these in a parallel transmission on the output,takes many signals in and converts it to a serial transmission output,takes many signals in and converts it to a serial transmission output
+902. A multiplexer is defined as a device which,combines several inputs into a single output,sparate a input into serveral outputs,converts the discretes signal to hexadecimal data words,combines several inputs into a single output
+903. In multiplexer circuit. Any of the eight input lines can be selected by the use of,Only one address line,three address lines,eight address lines,three address lines
+904. In Multiplexer the discretes inputs usually have to be converted to binary data words to be used by,the converter,the controller,the processor,the processor
+905. A demultiplexer is defined as a device which,combines several inputs into a single output,takes data from one source and distributes it according to some pattern into several output lines,converts the discretes signal to to binary data words,takes data from one source and distributes it according to some pattern into several output lines
+906. All analog outputs of a digital computer need to be,a varying signal,a discrete signal,a digital signal,a varying signal
+907. In Demultiplexer circuit. If all three address lines are 0. The bit out is,0,1,7,0
+908. In Demultiplexer circuit. If all three address lines are 1. The bit out is,0,1,7,7
+909. A 12 bit 16 Channel encoder will use a multiplexer with,3 bit parallel address line,4 bit parallel address line,2 wire series address line,4 bit parallel address line
+910. The output signal of Multiplexer is,Binary data words,Analogue signal,Discrete signal,Binary data words
+911. The address lines are controlled by,the controller,the addresser,the processor,the processor
+"912. Depending on the application, the single output pulse of Multiplexer may be used",directly by the computer,directly by the computer or by sequencing the address lines,by sequencing the address lines,directly by the computer or by sequencing the address lines
+913. At output of Multiplexer. Which data word can be generated?,a serial data word,a parallel data word,Both serial and parallel data words,a serial data word
+915. Which following statement is correct with Multiplexer?,Parallel data word could be changed to a serial word with a parallel to serial converter,Serial data word could then be changed to a parallel word with a parallel to serial converter,Serial data word could then be changed to a parallel word with a serial to parallel converter,Serial data word could then be changed to a parallel word with a serial to parallel converter
+916. What is serial to parallel and vice-versa called?,Switching,Multiplex/Demultiplex,Encoder/Decoder,Multiplex/Demultiplex
+917. The Demultiplexer circuit with three address lines and eight output lines is called,a three-line to eight-line encoder,a three-line to eight-line decoder,an eight-line to three-line decoder,a three-line to eight-line decoder
+"918. In Demultiplexer circuit, the serial line acts as",an enable function and the circuit is called a decoder,an enable function and the circuit is called a encoder,a disenable function and the circuit is called a decoder,an enable function and the circuit is called a decoder
+919. If the serial data is to be routed to the correct output. Which must be timed correctly with the serial data?,The input lines,The output lines,The address lines,The address lines
+920. Another way to use Demultiplexer circuit is,to set the parallel lines high all the time,to set the serial line high all the time,to set the input lines high all the time,to set the serial line high all the time
+921. The output line of Demultiplexer is selected by the address lines to,enable the selected gate if the serial data bit is high,Disable the selected gate if the serial data bit is high,enable the selected gate if the serial data bit is low,enable the selected gate if the serial data bit is high
+922. Fibre optic cables,are immune to EMI (Electromagnetic Interference),attenuate EMI,are susceptible to EMI,are immune to EMI (Electromagnetic Interference)
+923. A disadvantage of a fibre optic cable is,Couplings susceptible to ingress of fluid,Shallow bend radius allowed,Terminations require special care,Terminations require special care
+924. What is the main disadvantage of a fibre optic data bus?,Less strong and durable when compared to twisted pair and coaxial cable,Multiple connections are economically impractical,Bend radius and moisture ingress at connections,Multiple connections are economically impractical
+925. What kind of light is used in a fibre optic systems?,Infrared,Visible,Ultraviolet,Infrared
+926. Light travels along a fibre optic by,refraction,reflection,dispersion,reflection
+927. What is the advantage of a single mode fibre optic over ordinary wire?,Not prone to damage,Small bend radius,Large bandwidth,Large bandwidth
+928. Step index multi-mode fibres have,a relatively large core enabling a large number of modes to move,a small core in which many modes are dispersed,an extremely small core,a relatively large core enabling a large number of modes to move
+929. Conversion of electrical signals into light signals is accomplished by,an optical receiver,an optical transmitter,a digital transmitter,an optical transmitter
+930. the Onboard Local Area Network consists of,A Primary Ring (PRI) and A Secondary Ring (SEC),An World Wide Local Area Network (WWLAN) and A Cabin Local Area Network (CABLAN),An Avionics Local Area Network (AVLAN) and A Cabin Local Area Network (CABLAN),An Avionics Local Area Network (AVLAN) and A Cabin Local Area Network (CABLAN)
+931. Some of the advantages of fibre optic cable over copper cables are,"Non conductive, easy to manufacture and assemble, more robust, cheap","Less weight, unaffected by EMI/EMP, more tolerant of mechanical and environmental abuse","Non conductive, smaller in size and weight, easy to manufacture and assemble and higher security","Less weight, unaffected by EMI/EMP, more tolerant of mechanical and environmental abuse"
+932. A fibre optic cable consists of,Core and cladding have different refractive index,A silica glass core with a cladding having a lower refractive index,A silica glass core with a cladding having a higher refractive index,Core and cladding have different refractive index
+933. Light transmission in a fibreoptic cable is due to,refraction of the light,defraction of the light,repeated internal reflection,repeated internal reflection
+934. What is the advantage of a single mode fibre optic over ordinary wire?,Not prone to damage,Small bend radius,Large bandwidth,Large bandwidth
+935. A fiberoptic cable to LRU connector should be connected,very carefully to ensure alignment and reduce light loss,using torque-loaded pliers,hand tight only,very carefully to ensure alignment and reduce light loss
+936. What maintenance problems are associated with fibreoptics?,Corrosion,Deformation and contamination of connectors,Earthing faults,Deformation and contamination of connectors

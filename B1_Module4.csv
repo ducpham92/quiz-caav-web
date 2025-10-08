@@ -1,0 +1,42 @@
+﻿Question,Option A,Option B,Option C,Option D,Correct Answer
+Diodes are:,"Conductors,",Semi-conductors,Insulators,,Semi-conductors
+For the intrinsic conductivity of diodes,"At 0 degrees Kelvin, a semiconductor is a non-conductor","At 0 degrees Celsius, a semiconductor is a non-conductor","At 0 degrees Kelvin, a semiconductor is a conductor",,"At 0 degrees Kelvin, a semiconductor is a non-conductor"
+A junction diode,Is similar to a vacuum diode but cannot rectify,Has one p-n junction,Can handle only very small currents,,Has one p-n junction
+"In a semiconductor junction diode, electrons are the minority carriers.",Within the P region,Within the N region,In both the N and P regions,,Within the P region
+Forward voltage of a silicon diode is.,1.7V,0.7V,0.3V,,0.7V
+"To function, i.e. conduct, a junction diode made of silicon requires a forward bias of at least",0.2 V,1.41 V,1 V,,1 V
+"If forward bias is increased from zero on a p-n junction, a rapid increase in current flow for a relatively small increase in voltage occurs.",When the flow of minority carriers is sufficient to cause an avalanche breakdown,When the depletion layer becomes larger than the space charge area,Only after the forward bias exceeds the potential barrier,,Only after the forward bias exceeds the potential barrier
+When a diode is forward biased the,Positive lead is connected to both N and P type,Positive lead is connected to the P type and negative to the N type.,Positive lead is connected to the N type and negative to the P type,,Positive lead is connected to the P type and negative to the N type.
+The micro diodes are:,Primarily used for electrical power supply devices,Mainly used in communication technology,Used in rectifier circuits for large power outputs,,Mainly used in communication technology
+The rectifier diodes are:,Primarily used for electrical power supply devices,Mainly used in communication technology,Used in rectifier circuits for large power outputs,,Primarily used for electrical power supply devices
+The terminal of transistor with an arrow is named,Base,Collector,Emitter,,Emitter
+In a NPN transistor the P is the,Collector,Emitter,Base,,Base
+Which layer of transistor is called the emitter?,First layer,Middle layer,Last layer,,First layer
+A transistor has three terminal are,"Source, Gate, Drain","Emitter, Base, Collector","Source, Base, Drain",,"Emitter, Base, Collector"
+Two transistor types are,NPN transistor and PNP transistor,NPP transistor and PPN transistor,NNP transistor and PNN transistor,,NPN transistor and PNP transistor
+A transistor is used as,A fast electronic switch,A regulator for small and medium DC voltages and currents,A fast electronic switch or regulator for small and medium DC voltages and currents,,A fast electronic switch or regulator for small and medium DC voltages and currents
+If the arrow points outside the transistor,It is a NPN transistor,It is a PNP transistor,It is a NPN or PNP transistor,,It is a NPN transistor
+"If the arrow points from emitter to base, the transistor is",NPN transistor,PNP transistor,NPN or PNP transistor,,PNP transistor
+"In a transistor, number of sequential semiconductor layers are",2,3,4,,3
+The Middle layer of transistor is called,Emitter,Base,Collector,,Base
+What are Integrated Circuits?,Integrated Circuits are conections of several electronic components by wiring,Integrated Circuits are arrangements of several electronic components in a common housing,Integrated Circuits are arrangements of semiconductor layers,,Integrated Circuits are arrangements of several electronic components in a common housing
+What is the major advantage of integrated circuits?,Very high density of the components,They are quit resistant to mechanical stress,They are very cheap,,Very high density of the components
+Usually the following components are integrated in ICs (Integrated Circuit),"Semiconductors (Transistors, Diodes), Resistors","Semiconductors (Transistors, Diodes), Capacitors","Semiconductors (Transistors, Diodes), Resistors, Capacitors",,"Semiconductors (Transistors, Diodes), Resistors, Capacitors"
+What are the disadvantages of integrated circuits?,Small housing and therefore the small surface,ICs can not be repaired,"Small housing and therefore the small surface, ICs can not be repaired",,"Small housing and therefore the small surface, ICs can not be repaired"
+Which following components are integrated in ICs?,"Transistors, Diodes, Resistors and Capaciors","Transistors, Diodes, Resistors and Inductances","Transistors, Diodes, Inductances and Capaciors",,"Transistors, Diodes, Resistors and Capaciors"
+Which component usually can not be integrated due to their large space requirements?,Capaciors,Inductances,Transistors,,Inductances
+Usually ICs are made from,Very pure Silicon,Very pure Germanium,Impure Silicon,,Very pure Silicon
+The operational amplifier is always a differential amplifier with,One input and one output,One input and two outputs,Two inputs and one output,,Two inputs and one output
+The inverting input of operational amplifier is usually designated with,A plus sign,A minus sign,A minus output,,A minus sign
+The dimensions of operational amplifiers are,Very large,Medium,Very small,,Very small
+The PCBs have been a popular medium for the installation of electronic components since,The early of 1950s,The 1970s,The 2000s,,The 1970s
+A multi-layer PCB has,Two or more layers on one or both sides,One layer on either side,Two or more layers connected in series,,Two or more layers on one or both sides
+A Printed Circuit Board (PC,a thick sheet of copper,a thin sheet of copper,various thicknesses of copper,,a thin sheet of copper
+What is the base material of a PCB?,Insulator,Semiconductor,Conductor,,Insulator
+For printed circuit boards. Which material are also used for specialized applications?,"Polyester, Teflon",Polyester and ceramics,"Polyester, Teflon and ceramics",,"Polyester, Teflon and ceramics"
+TR is the abbreviation for a,transmitter Resolver,torque receiver,torque synchro,,torque receiver
+TX is the abbreviation for a,torque receiver,control transformer,torque transmitter,,torque transmitter
+Servo systems can be loosely divided into,Two different types,Three different types,Four different types,,Two different types
+Synchros compare in construction to alternating current generators are,Similar,Difference,More complex,,Similar
+Synchros work like,Voltage regulators,Induction regulators,Resistance regulators,,Induction regulators
+Differential transmitters are used to,Add or subtract angles,Add or subtract two electrical signals,Increase the operating speed of the synchro receiver ----HẾT---,,Add or subtract angles

@@ -1,0 +1,151 @@
+﻿Question,Option A,Option B,Option C,Option D,Correct Answer
+All Monitors for EIS,are same type in all aircrafts,are same type in an aircraft,are difference type in an aircraft,,are same type in an aircraft
+All modern aircraft use,Electronic Instrument Display Systems,Analoge Indicator,Analoge technology,,Electronic Instrument Display Systems
+A typical Electronic System has the following components,"Display Computers, Display Units and Control Panels","Display Computers, Display Units and Keyboards","Display Computers, Display Units and Mouse",,"Display Computers, Display Units and Control Panels"
+What generation of display unit are installed in the early 80’s,LCD display units,Simple cathod ray tubes,Display units,,Simple cathod ray tubes
+Which generation of display unit are installed since 90’s,LCD display units,Simple cathod ray tubes,Analogue Display Units,,LCD display units
+Which Display Unit indicate the data of naviagtion system?,Primary Flight Display (PF,Navigation Display (N,System Display (SD),,Navigation Display (N
+The lower center display unit is called,System display,Engine Indication display,Warning display,,System display
+The two groups indicators in the cockpit are,Flight surveillance and Engine surveillance,Aircraft surveillance and Engine surveillance,Flight surveillance and Aircraft surveillance,,Flight surveillance and Aircraft surveillance
+The inputs of Display computers are:,"Navigation data, Auto Flight System data and Display Unit",Engine data and Auto Flight System data and Display Unit,"Navigation data, Auto Flight System data, Engine data and Data from various aircraft systems.",,"Navigation data, Auto Flight System data, Engine data and Data from various aircraft systems."
+Each pilot has two Display Units. They are,Primary Flight Display (PF,Primary Flight Display (PF,Navigation Display (N,and System Display (SD),Primary Flight Display (PF
+How many display computers on aircraft?,Two display computers,Three display computers,There are at least two display computers. Large aircraft have a third display computer for redundancy,,There are at least two display computers. Large aircraft have a third display computer for redundancy
+Which informations are displayed on the Electronic Flight Instruments?,The navigation data,The navigation data and the information about the activities of the auto flight system,The information about the activities of the auto flight system,,The navigation data and the information about the activities of the auto flight system
+The upper center display shows,Alerts from various aircraft systems if something is out of limit,Aircraft System data,The information about the activities of the auto flight system,,Alerts from various aircraft systems if something is out of limit
+Which components are form a display unit,Cathod ray tube and Symbol Generator Unit (SGU),Cathod ray tube and symbol generator,Cathod ray tube and Display Management Computer (DMC),,Cathod ray tube and symbol generator
+Which indicator is belongs to Flight surveillance group?,Heading indicator,Position Indication,EGT indicator,,Heading indicator
+Which indicator is belongs to Aircraft surveillance group?,Position indication,Altimeter,Fuel indicator,,Position indication
+The Base of Binary Number System is,2,6,8,,2
+What is used for the power of 10?,Binary.,Decimal.,Octal,,Decimal.
+"If a data message is made up of 1s and 0s, it is.",analogue,binary,digital,,digital
+A hexadecimal is a number to base,2,8,16,,16
+A computer message 3B4 is.,Binary,hexadecimal,Octal,,hexadecimal
+"A number represented as a physical quantity, e.g. voltage or speed of rotation is",digital,analogue,Discrete,,analogue
+If a signal has quantity in volts and physical position it is,digital,synchronous,analogue,,analogue
+An A/D (Analogue/Digital) converter converts,"A continuous voltage signal, or analog signal into a multi-bit digital word",A continuous voltage signal into a multi-bit digital word,Discrete signal into a multi-bit digital word,,"A continuous voltage signal, or analog signal into a multi-bit digital word"
+The sawtooth principle uses,a sawtooth created by the converter and compates it with the output voltage,a sawtooth created by the converter and compates it with the input voltage,a sawtooth created by the converter and compates it with the input current,,a sawtooth created by the converter and compates it with the input voltage
+A ramp generation A/D converter compares,the unknown input voltage to a D/A with output voltage,the certain input voltage to a D/A connected as a ramp generator,the unknown input voltage to a D/A connected as a ramp generator,,the unknown input voltage to a D/A connected as a ramp generator
+Why does an ARINC databus system send data to LRUs in series?,Saves weight,More information can be sent,Takes less time,,Saves weight
+An ARINC 429 bus uses,a single twin cable for each transmitter,a twisted shielded pair of wires,"two bi-directional twin, sheathed and earthed wires",,a twisted shielded pair of wires
+"In the ARINC 429 digital information transfer system, data may travel in",both directions on the same bus simultaneously,one direction only,both directions on the same bus sequentially by time multiplexing,,one direction only
+ARINC 629 is used for,emergency only,a backup to ARINC 429,supports a multi-transmitter and bidirectional approach to digital data communications,,supports a multi-transmitter and bidirectional approach to digital data communications
+ARINC 629 is,half duplex,full duplex,simplex,,half duplex
+A simplex system has,"one transmitter, one receiver",a bus controller and separate controller,"one transmitter, many receivers",,"one transmitter, many receivers"
+An ARINC 429 system uses a.,20 bit word over a bi-directional bus,32 bit word over a twisted pair of wires,16 bit word over a twisted pair of wires,,32 bit word over a twisted pair of wires
+RZ bi-polar modulation consists of bits which are one of __________ states?,Two,Three,Four,,Three
+Where is the parity bit installed in a data word?,Front,End LSB,End MSB,,End MSB
+What system uses base 8?,"ARINC 429, in dataword labels only",ARINC 573,ARINC 629,,"ARINC 429, in dataword labels only"
+ARINC 429 SDI word format is at bits,32,30-31,9-10,,9-10
+In an ARINC 429 digital word bit number 32 is used for,terminating the data field,identifying word type,checking parity,,checking parity
+"In an ARINC 429 Word label-representing heading is 320, this is represented in bits 1- 8 as",01011001,00001011,01101000,,00001011
+How is the word label 206 written in ARINC 429?,Binary 11000110,Octal 01100001,Decimal 206,,Octal 01100001
+An ARINC 429 Binary Coded Decimal word occupies word bits,1-8,11-28,11-29,,11-29
+"In ARINC 429 data field is bits 11 to 28. If the bits 11 to 18 had pad bits, the L.S.",Bit 11,Bit 18,Bit 19,,Bit 19
+An ARINC 629 stub cable,connects single directional data between the LRU and current mode coupler,connects bi-directional data between the LRU and current mode coupler,connects bi-directional data between two LRUs,,connects bi-directional data between the LRU and current mode coupler
+The general arrangement of ARINC 629 includes,"databus cable, current mode coupler, stub cable","current mode coupler, databus cable only","current mode coupler, stub cable only",,"databus cable, current mode coupler, stub cable"
+To connect an LRU to the data bus,a terminal controller and interface module only is required,"current mode coupler, terminal controller and a production break is required","a current mode coupler, serial interface module and terminal controller is required",,"a current mode coupler, serial interface module and terminal controller is required"
+ARINC 629 current mode couplers are,capacitive,inductive,resistive,,inductive
+"When the voltage that represents a logic 1 state is less than the voltage that represents a logic 0 state, the logic being used is",positive,negative,either positive or negative,,negative
+In Positive Logic representation,state 1 is more positive than state 0,state 0 is more positive than state 1,both states have same positive voltages but stage 1 has more current,,state 1 is more positive than state 0
+The output of a NOT gate is logic 1. The input is,logic 0,logic 1,both logic 0 and 1,,logic 0
+For logical combination there are only three basic functions,"INVERTER function, AND function and SUB function","INVERTER function, SUB function and OR function","INVERTER function, AND function and OR function",,"INVERTER function, AND function and OR function"
+With INVERTER function. What is correct statement?,If the input signal is a logical 1. The output signal is also a logical 1,If the input signal is a logical 0. The output signal is also a logical 0,If the input signal is a logical 1. The output signal is a logical 0 and vice versa,,If the input signal is a logical 1. The output signal is a logical 0 and vice versa
+The Inverter (NOT-Function),inverts the input signal,is called a boolean complement,inverts the input signal. It is also called a boolean complement,,inverts the input signal. It is also called a boolean complement
+"For logic AND gate, the output has a logic 0 if",All inputs have a logic 0,One or more inputs have a logic 0,All inputs have a logic 1,,One or more inputs have a logic 0
+"For logic AND gate, the output has a logic 1 if",All inputs have a logic 1,One or more inputs have a logic 1,All inputs have a logic 0,,All inputs have a logic 1
+An AND gate with inverted inputs and an inverted output is equivalent to,an OR gate,a NOR gate,a NAND gate,,an OR gate
+A NAND gate has inputs A and B and output,"A=0, B=0","A=1, B=1","A=1, B=0",,"A=1, B=1"
+Adding invertors to the two inputs of an AND gate makes a,OR gate,NOR gate,NAND gate,,NOR gate
+What sort of gate requires two positive voltages to operate?,AND,OR,NAND,,AND
+Which logic gate can be represented as a parallel circuit?,OR gate,Exclusive OR gate,AND gate,,OR gate
+"For logic NAND gate (Not-AND-Gate), the output have logic 1 if",All inputs have a logic 1,One input has a logic 1,One input has a logic 0,,One input has a logic 0
+"For logic NAND gate (Not-AND-Gate), the output have logic 0 if",All inputs have a logic 0,All inputs have a logic 1,One input has a logic 1,,All inputs have a logic 1
+What sort of gate requires two negative input voltages to operate?,NAND,AND,NOR,,NAND
+What is a Computer?,is a machine that processes data by means of digital technologies,is a machine that processes data by means of analogue technologies,is a machine that receive data by means of digital technologies,,is a machine that processes data by means of digital technologies
+What does Hardware mean?,all devices that are required to process binary data in analogue systems,all devices that are required to collect binary data in analogue systems,all devices and components that are required to process binary data in digital systems,,all devices and components that are required to process binary data in digital systems
+What is the software?,Software is an order of instructions that tells how to process data,Software is a common word which is used to describe all kinds of programms,Software is a programm,,Software is a common word which is used to describe all kinds of programms
+Which following form a computer?,Hardware and Processor,Program and Software,Hardware and Software,,Hardware and Software
+A computer consist of at least the C.P.U and,Memory and input & output port,"Memory, ALU, input & output port","Memory, input & output interface and bus system",,"Memory, input & output interface and bus system"
+Which components are In the “Computation“ section of the FCC?,Processor and Analogue Digital Converter,Processor and Memory,Processor and Bus-System,,Processor and Memory
+How many bytes can be carried in a 32 bit word?,8 bytes,32 bytes,4 bytes,,4 bytes
+The advantage of DRAM over SRAM is,Are cheaper to manufacture,Has a larger storage capacity per chip area,They operate slower,,Has a larger storage capacity per chip area
+DRAM,requires a refreshing charge,memory is stored when power supply is removed,it does not require a refreshing charge,,requires a refreshing charge
+Which type of memory that the information stored is lost as soon as the power supply is switched off?,ROM,PROM,RAM,,RAM
+Fibre optic cables,are immune to EMI (Electromagnetic Interference),attenuate EMI,are susceptible to EMI,,are immune to EMI (Electromagnetic Interference)
+A disadvantage of a fibre optic cable is,Couplings susceptible to ingress of fluid,Shallow bend radius allowed,Terminations require special care,,Terminations require special care
+What is the main disadvantage of a fibre optic data bus?,Less strong and durable when compared to twisted pair and coaxial cable,Multiple connections are economically impractical,Bend radius and moisture ingress at connections,,Multiple connections are economically impractical
+What kind of light is used in a fibre optic systems?,Infrared,Visible,Ultraviolet,,Infrared
+Light travels along a fibre optic by,refraction,reflection,dispersion,,reflection
+CRT’s are used in,CDU’s and EIS or IDS,"CDU’s, EIS or IDS and Weather-Radar Displays",EIS or IDS and Weather-Radar Displays,,"CDU’s, EIS or IDS and Weather-Radar Displays"
+Advantages of CRT is,Coloured multifunctional displays,Light weight,Low power consumption,,Coloured multifunctional displays
+Disadvantages of CRT are,limited lifespan and temperature sensitive,thermal and temperature sensitive,limited lifespan and high power consumption,,limited lifespan and high power consumption
+In CRT. The electron beams are pulled towards the screen (Anode) by,a high voltage,a low voltage,all voltage,,a high voltage
+A Colour-CRT contains,three terminals,three cathodes,three anodes and one cathode,,three terminals
+A CRT display,is monochrome,has three colours only,has infinite colours,,has three colours only
+When mixing Red and Green colours get,Cyan colour,Yellow colour,Magenta colour,,Yellow colour
+Three different colours which A picture is composed are,"green, blue and yellow","green, yellow and red","red, green and blue",,"red, green and blue"
+Advantages of LCD are,low energy consumption and good illuminated,good illuminated and temperature sensitive,low energy consumption and temperature sensitive,,low energy consumption and good illuminated
+Disadvantages of LCD is,Flat,High energy consumption,Temperature sensitive,,Temperature sensitive
+For CRT display In case one of the colours fails,All pictures still available,a white picture is no longer displayable,a red picture is no longer displayable,,a white picture is no longer displayable
+Which mode deflects the electron beam in lines across the screen?,stroke scan mode,stroke scan mode and raster scan mode,raster scan mode,,raster scan mode
+Which mode deflects the electron beam along the shape of the symbols to be displayed?,stroke scan mode,raster scan mode,stroke scan mode and raster scan mode,,stroke scan mode
+Which mode is used for background indications like the blue/brown picture from the artificial horizon?,stroke scan mode,raster scan mode,stroke scan mode and raster scan mode,,raster scan mode
+An LCD display has the advantage over a CRT display of a,low energy consumption,temperature sensitive,the fluid might freeze,,low energy consumption
+An LCD display has the advantage over a CRT display of a,temperature sensitive,the fluid might freeze,long lifespan,,long lifespan
+"At low ambient temperatures, an LCD screen",is slower to update as data changes,viewing angle becomes larger,loses contrast,,is slower to update as data changes
+To drive LCDs,Direct current must be used,Alternate current must not be used,Direct current must not be used,,Direct current must not be used
+HUD are succsessively installed in many aircraft to,improve takeoff abilities under bad weather conditions,improve landing abilities under bad weather conditions,use in cruise only,,improve landing abilities under bad weather conditions
+OLED−Technology has the advantage over LCD−Technology of,The colours are brighter,The screen can also be read from a side view,"The colours are brighter, the screen can also be read from a side view and is thinner and even flexible",,"The colours are brighter, the screen can also be read from a side view and is thinner and even flexible"
+What is electrostatic discharge?,"Electrostatic discharge is always present in our environment, consequently also at our place of work",Electrostatic discharge is not present in our environment,Electrostatic discharge occurs whena. the ground lead on a wrist strap touches the skin,,"Electrostatic discharge is always present in our environment, consequently also at our place of work"
+ESD is acronym for,Electrical System Data,Electrostatic Sensitive Devices,Electronic System Display,,Electrostatic Sensitive Devices
+A BITE-Test (Built In Test Equipment) is,is a test that runs when the equipment is switched on and checks the hardware (Power-Up Test),is a test that check the system operation,is a test that checks the software,,is a test that runs when the equipment is switched on and checks the hardware (Power-Up Test)
+Die Check Sum,is the sum of digits retrieved via the software,is the sum of digits retrieved via the software but which can not detect faults in the memory,is the sum of digits retrieved via the software and which can detect faults in the memory,,is the sum of digits retrieved via the software and which can detect faults in the memory
+Electrostatic discharge can be,Non destructive,Little destructive,Very destructive,,Very destructive
+What precautions are required when removing ESDs equipment?,No special precautions are required,Keep one hand on the airframe,Assuring that suitable grounding techniques are applied to set both personnel and the device with the same potential,,Assuring that suitable grounding techniques are applied to set both personnel and the device with the same potential
+Personnel performing work on ESD components and devices must have,ESD tools,A good knowledge of the procedural guide−lines pertaining to ESD,Protect,,A good knowledge of the procedural guide−lines pertaining to ESD
+How to identifying components sensitive to ESD?,By a label on component,By refer to associated document,All aircraft components are ESD components,,By a label on component
+The static load is stored in those material which are,Non-conductive and tend to look for the nearest way to discharge,Conductive and tend to look for the nearest way to discharge,No special precautions are required,,Non-conductive and tend to look for the nearest way to discharge
+The damage result of ESD is,Always reparable,Always irreparable,Not effect to system,,Always irreparable
+The Electrostatic discharge can be,extremely fast,full of energy,be extremely fast and full of energy,,be extremely fast and full of energy
+Which voltage can be absolutely fatal for components?,Voltages from well below 100 volts,Voltages from above 1000 volts,Any voltages,,Voltages from well below 100 volts
+Static electricity is created as soon as,two materials are rubbed together,"two materials are rubbed together, are separated","two materials are rubbed together, are separated or are in moving in some kind of fluid or gaseous form",,"two materials are rubbed together, are separated or are in moving in some kind of fluid or gaseous form"
+To transport and dispatch ESD components,using conductive material,using non-conductive material,using semiconductive material,,using conductive material
+Personnel performing work on ESD components and devices must,assuring that suitable grounding techniques are applied to personnel,assuring that suitable grounding techniques are applied to device,assuring that suitable grounding techniques are applied to set both personnel and the device with the same potential,,assuring that suitable grounding techniques are applied to set both personnel and the device with the same potential
+"To prevent any charging of personnel, tools and workbench",No special precautions are required,Application of static neutralizers,Keep one hand on the workbench,,Application of static neutralizers
+What is the software?,the program of the arithmetic process in the computer,the program of the logic process in the computer,the program of the arithmetic and logic process in the computer,,the program of the arithmetic and logic process in the computer
+Each digital LRU (Line Replaceable Unit) consists of the,Hardware and Software,Hardware and Programm,Hardware and Memory,,Hardware and Software
+Software Level A failure is defined as,No Effect,Catastrophic,Major,,Catastrophic
+Software Level B failure is defined as,Minor,Major,Hazardous,,Hazardous
+Software Level C failure is defined as,Major,Minor,Catastrophic,,Major
+Software Level D failure is defined as,Hazardous,Minor,No Effect,,Minor
+Software Level E failure is defined as,Catastrophic,Major,No Effect,,No Effect
+Software can be done by maintenance personnel is classified in,level A,level E,level B,,level E
+In any case software must be guaranteed that,other systems will be affected,no other systems will be affected,Inprogress loading must be acknowledged,,no other systems will be affected
+Which software also known as Application Software?,The Core Software,Data Base Software,The Operational Software,,The Operational Software
+"Which software can be done by maintenance personnel, but only if respective documentation is available?",Software which is classified in level A,Software which is classified in level B,Software which is classified in level E,,Software which is classified in level E
+Which software only authorized personal may modify?,Software which is classified in level A,Software which is classified in level B,Software which is classified in level C,,Software which is classified in level A
+"An aircraft system allocated a software level of C that, should it fail due to a software error, may cause",injuries to a large proportion of occupants,injuries to some occupants,no injuries to occupants,,injuries to some occupants
+An aircraft system allocated a Criticality Category of Hazardous has a Software Level of,Level A,Level C,Level B,,Level B
+"An aircraft system that, should it fail due to a software error, would cause a slight increase in crew workload, has a software level of",Level D,Level B,Level C,,Level D
+"An aircraft system with a software level of D, should it fail due to a software error, may cause the aircraft safety margin to be",slightly increased,slightly decreased,significantly decreased,,slightly decreased
+"If due to a software error in an aircraft system that would cause injuries to some of the occupants, the system has a software criticality category of",hazardous effect,minor effect,major effect,,major effect
+"An aircraft system that, should it fail due to a software error, would cause no injuries to occupants, has a criticality category of",minor effect,major effect,hazardous effect,,minor effect
+What is the effect of a level A software failure?,Significant reduction in safety margins,Loss of aircraft and / or fatalities,Large reduction in safety margins,,Loss of aircraft and / or fatalities
+Who can sign for a software update?,Design organization or the aircraft manufacturer,Chief pilot,Engineer,,Engineer
+HIRF is acronym for,Heavily Ionised Radio Frequencies,High Intensity Radiated Field,High Intensity Radio Frequencies,,High Intensity Radiated Field
+Which systems are operated by transmitting controlled EM radiation?,Radio communication systems,Navigation systems,Radio communication and navigation systems,,Radio communication and navigation systems
+The components installed in aircraft are subject to,Build regulations,Disassembly regulations,Installed regulations,,Build regulations
+EMC is acronym for,Electrical Monitoring Center,electromagnetic compability,Electrical Management Computer,,electromagnetic compability
+EMI is acronym for,Electrical Measurement Index,Electromagnetic Indication,Electromagnetic interference,,Electromagnetic interference
+Which equipments influence the environment by electromagnetic radiation?,All electric/electronic equipments,All electric equipments,All electronic equipments,,All electric/electronic equipments
+Aircraft Components test procedures and the limitations are fixed in,RTCA Document DO−160C,Eurocae document ED−14C,"RTCA Document DO−160C, or in Eurocae document ED−14C",,"RTCA Document DO−160C, or in Eurocae document ED−14C"
+If the new aircraft component is critical to flight safety,the examination is repeated,the examination is repeated in reverse,the examination is done after install,,the examination is repeated in reverse
+How many terms are used for Electromagnetic Environment?,2,3,4,,4
+The use of mobile phones is not permitted at any time in flight due to,they can interfere with an aircrafts electric systems,they can interfere with an aircrafts electronic systems,they can interfere with all aircrafts systems,,they can interfere with an aircrafts electronic systems
+What does EMC (electromagnetic compability) mean?,meaning units will not adversely affect one another,meaning units will affect one another,the maximum interference allowable for a particular transmission on,,meaning units will not adversely affect one another
+For Aircraft Components. The specification of the appliance describes,its Technical Standard Order (TSO),Its Joints Technical Standard Order (TSO),"Its Technical Standard Order (TSO) for the American area, or Joint TSO for the European area",,"Its Technical Standard Order (TSO) for the American area, or Joint TSO for the European area"
+What is EMI (Electromagnetic interference)?,is the minimum interference allowable for a particular transmission on a bus or wire,is the maximum interference allowable for a particular transmission on a bus or wire,is the maximum interference allowable for a particular reception on a bus or wire,,is the maximum interference allowable for a particular transmission on a bus or wire
+To keep EMI (Electromagnetic interference) within limits it can be necessary to install,EMI-filter on the receiver and transmitter side of the unit,EMI-filter on the receiver side of the unit only,EMI-filter on the transmitter side of the unit only,,EMI-filter on the receiver and transmitter side of the unit
+HIRF (high intensity radiated field) is,the zone of high radiation which is caused by environment,the zone of high radiation which is caused by lightning,the zone of high radiation which is caused by equipment such as weather radar,,the zone of high radiation which is caused by equipment such as weather radar
+To keep EMI (Electromagnetic interference) within limits,Good grounding techniques must be provided for the shielding of antenna,Good grounding techniques must be provided for the shielding of screened wires as the shielding may act as an antenna,Good grounding techniques must be provided for the shielding of screened wires,,Good grounding techniques must be provided for the shielding of screened wires as the shielding may act as an antenna
+To ensures Aircraft Components they do not exceed their fixed tolerance values you perform,Testing of components,Remove compnent and send to shop,Visual check ----HẾT---,,Testing of components
