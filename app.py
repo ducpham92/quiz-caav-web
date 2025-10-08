@@ -475,9 +475,7 @@ with tab_mix:
     with c3:
         pC = st.number_input("% M10", min_value=0, max_value=100, value=0, key="mix_p_m10")
 
-    st.caption("• App sẽ chia đều số câu mỗi Cat qua các module hiện có.")
-
-• Bấm **Tính phân bổ** để xem bảng chi tiết (tổng từng Cat và từng Module). Nếu ổn, bấm **Tạo đề hỗn hợp** để nạp vào bài.")
+    st.caption("• App sẽ chia đều số câu mỗi Cat qua các module hiện có.• Bấm **Tính phân bổ** để xem bảng chi tiết (tổng từng Cat và từng Module). Nếu ổn, bấm **Tạo đề hỗn hợp** để nạp vào bài.")
 
     def _plan_distribution() -> Dict[str, List[Dict]]:
         """Return a per-category plan with even split across available modules.
