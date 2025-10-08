@@ -360,11 +360,19 @@ def main_streamlit():
                 st.session_state.fails_first_try.add(qi)
             st.session_state.picks[qi] = choice
 
+        # Render options
         for original_idx, text in options_indexed:
-            btn = st.button(f"{chr(65+original_idx)}. {text}", key=f"opt_{qi}_{original_idx}")
-            if btn:
-                on_pick(original_idx)
-                st.rerun()
+            label = f"{chr(65+original_idx)}. {text}"
+        
+            # Kiểm tra nếu người dùng đã chọn
+            if qi in st.session_state.picks and st.session_state.picks[qi] == original_idx:
+                # Nếu là chế độ TEST: đánh dấu đáp án đã chọn
+                label = f"✅ {label}"
+                st.markdown(f"<div style='padding:8px;border-radius:6px;background-color:#e6f7ff;border:1px solid #91d5ff;'>{label}</div>", unsafe_allow_html=True)
+            else:
+                if st.button(label, key=f"opt_{qi}_{original_idx}", use_container_width=True):
+                    on_pick(original_idx)
+                    st.rerun()
 
         # Feedback area (Practice only)
         if not st.session_state.is_test_mode and picked != -1:
