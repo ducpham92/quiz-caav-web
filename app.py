@@ -281,7 +281,7 @@ def main_streamlit():
         st.session_state.shuffle_q = st.checkbox("Xáo trộn câu", value=st.session_state.shuffle_q)
         st.session_state.shuffle_opt = st.checkbox("Xáo trộn đáp án", value=st.session_state.shuffle_opt)
 
-        if st.button("Nạp câu hỏi", use_container_width=True):
+        if st.button("Nạp câu hỏi", width="stretch"):
             bank = [QAItem(**d) for d in _load_bank(code, st.session_state.module)]
             st.session_state.bank = bank
             if not bank:
@@ -298,7 +298,7 @@ def main_streamlit():
         start_col1, start_col2 = st.columns(2)
         with start_col1:
             if st.button(
-                "BẮT ĐẦU", type="primary", use_container_width=True, disabled=(len(st.session_state.bank) == 0)
+                "BẮT ĐẦU", type="primary", width="stretch", disabled=(len(st.session_state.bank) == 0)
             ):
                 st.session_state.is_quiz_active = True
                 st.session_state.cur = 0
@@ -309,7 +309,7 @@ def main_streamlit():
                     st.session_state.remaining = TEST_DURATION_SECONDS
                 st.toast("Bắt đầu làm bài!")
         with start_col2:
-            if st.button("HỦY THI", use_container_width=True, disabled=not st.session_state.is_quiz_active):
+            if st.button("HỦY THI", width="stretch", disabled=not st.session_state.is_quiz_active):
                 st.session_state.is_quiz_active = False
                 st.session_state.bank = []
                 st.session_state.order = []
@@ -322,14 +322,28 @@ def main_streamlit():
 
     # Timer (only in test mode)
     if st.session_state.is_quiz_active and st.session_state.is_test_mode and st.session_state.start_time is not None:
+        # Use safe autorefresh instead of manual rerun loops in TEST mode
+        # This avoids unstable infinite reruns on Streamlit Cloud.
+        if "_timer_enabled" not in st.session_state:
+            st.session_state._timer_enabled = True
+        if st.session_state._timer_enabled:
+            try:
+                st.autorefresh(interval=1000, key="__test_timer__", limit=None)
+            except Exception:
+                # Older Streamlit: autorefresh may not exist; degrade gracefully (no auto-tick)
+                pass
+
         elapsed = int(time.time() - st.session_state.start_time)
         st.session_state.remaining = max(0, TEST_DURATION_SECONDS - elapsed)
         mm, ss = divmod(st.session_state.remaining, 60)
         st.markdown(f"### ⏱️ Thời gian còn lại: **{mm:02d}:{ss:02d}**")
         if st.session_state.remaining == 0:
-            st.warning("Hết giờ! Hệ thống sẽ tự động nộp bài.")
+            # Stop the test cleanly and disable the timer
             st.session_state.is_quiz_active = False
-        else:
+            st.session_state.is_test_mode = False
+            st.session_state.start_time = None
+            st.session_state._timer_enabled = False
+            st.session_state.remaining = TEST_DURATION_SECONDS
             st.rerun()
 
     # ---------- Main Content ----------
@@ -440,7 +454,7 @@ def main_streamlit():
         try:
             import pandas as pd  # optional
             df = pd.DataFrame(rows)
-            st.dataframe(df, use_container_width=True)
+            st.dataframe(df, width="stretch")
             csv_bytes = df.to_csv(index=False).encode("utf-8-sig")
             st.download_button("Tải kết quả (CSV)", data=csv_bytes, file_name="results.csv", mime="text/csv")
         except Exception:
@@ -512,11 +526,11 @@ def render_tabs(st):
                 st.markdown(f"**[{cat}] Tổng dự kiến:** {sum(r['take'] for r in rows)} câu")
                 df = pd.DataFrame(rows)[["module", "available", "need", "take"]]
                 df = df.rename(columns={"module": "Module", "available": "Có sẵn", "need": "Cần", "take": "Lấy"})
-                st.dataframe(df, use_container_width=True)
+                st.dataframe(df, width="stretch")
                 total_take += sum(r['take'] for r in rows)
             st.info(f"Tổng cộng sẽ lấy: **{total_take}**/{int(total_mix)} câu.")
 
-        if st.button("Tạo đề hỗn hợp", use_container_width=True):
+        if st.button("Tạo đề hỗn hợp", width="stretch"):
             if pA + pB + pC != 100:
                 st.error("Tổng % phải = 100")
             else:
@@ -555,6 +569,103 @@ if _st is not None:
         # If something goes wrong, leave original main_streamlit intact
         pass
 
-# --- Run Streamlit UI by default ---
-if _st is not None:
-    main_streamlit()
+# -----------------------------------------------------------
+# Self tests (no external deps) + CLI fallback
+# -----------------------------------------------------------
+
+def run_self_tests() -> None:
+    print("Running self tests...")
+    tmp = tempfile.TemporaryDirectory()
+    base = tmp.name
+
+    def make_csv(cat: str, module: int, rows: List[Tuple[str, List[str], str]]):
+        path = os.path.join(base, f"{cat}_Module{module}.csv")
+        headers = ["Question", "Option A", "Option B", "Option C", "Correct Answer"]
+        with open(path, "w", encoding="utf-8", newline="") as f:
+            w = csv.writer(f)
+            w.writerow(headers)
+            for q, opts, correct in rows:
+                row = [q]
+                for i in range(3):
+                    row.append(opts[i] if i < len(opts) else "")
+                row.append(correct)
+                w.writerow(row)
+
+    make_csv("B1", 1, [
+        ("Q1 B1?", ["A1", "B1", "C1"], "B1"),
+        ("Q2 B1?", ["A2", "B2", "C2"], "A2"),
+    ])
+    make_csv("M10", 2, [
+        ("Q1 M10?", ["X1", "Y1", "Z1"], "Z1"),
+        ("Q2 M10?", ["X2", "Y2", "Z2"], "Y2"),
+        ("Q3 M10?", ["X3", "Y3", "Z3"], "X3"),
+    ])
+
+    # Test: list modules
+    assert list_available_modules("B1", base) == [1]
+    assert list_available_modules("M10", base) == [2]
+
+    # Test: load structure
+    b1 = load_csv_bank("B1", "1", base)
+    assert len(b1) == 2 and b1[0].q.startswith("Q")
+
+    # Test: mix 50/50 of 5 → 2 & 3 (Largest Remainder)
+    mixed = mix_generate({"B1": 50, "M10": 50}, 5, base)
+    assert len(mixed) == 5
+    cats = [x.cat for x in mixed]
+    assert cats.count("B1") == 2 and cats.count("M10") == 3
+
+    # Test: cap by availability
+    mixed2 = mix_generate({"B1": 50, "M10": 50}, 10, base)
+    assert len(mixed2) == 5
+
+    # Extra tests
+    # 1) 0% category should not appear
+    mixed3 = mix_generate({"B1": 100, "M10": 0}, 4, base)
+    assert all(x.cat == "B1" for x in mixed3)
+
+    # 2) Percent map not summing to 100 should raise
+    try:
+        mix_generate({"B1": 60, "M10": 30}, 10, base)
+        raise AssertionError("Expected ValueError when percents do not sum to 100")
+    except ValueError:
+        pass
+
+    # 3) Near-even distribution across modules within a category
+    make_csv("B1", 2, [
+        ("Q3 B1?", ["A3", "B3", "C3"], "C3"),
+        ("Q4 B1?", ["A4", "B4", "C4"], "B4"),
+        ("Q5 B1?", ["A5", "B5", "C5"], "A5"),
+    ])
+    mixed4 = mix_generate({"B1": 100}, 5, base)
+    b1mods = [x.module for x in mixed4 if x.cat == "B1"]
+    assert set(b1mods) == {"1", "2"}, "Should sample from multiple modules when available"
+
+    print("Self tests passed.\n")
+
+
+def main_cli() -> None:
+    print(APP_TITLE)
+    print("CLI fallback — list modules per category in current folder:\n")
+    for k, v in CATEGORIES.items():
+        mods = list_available_modules(v)
+        print(f"- {k} ({v}): {mods}")
+
+
+# --- Entrypoint ---
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=APP_TITLE)
+    parser.add_argument("--cli", action="store_true", help="Run CLI fallback (no dependencies)")
+    parser.add_argument("--selftest", action="store_true", help="Run built-in tests (no dependencies)")
+    args = parser.parse_args()
+
+    if args.selftest:
+        run_self_tests()
+        sys.exit(0)
+
+    if args.cli or _st is None:
+        if _st is None:
+            print("[INFO] streamlit not found → running CLI fallback. Install streamlit to use the web UI.")
+        main_cli()
+    else:
+        main_streamlit()
